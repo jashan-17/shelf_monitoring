@@ -1,0 +1,678 @@
+[0m21:24:49.141478 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018BC6DB83B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018BC9BC7830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018BC9BC5760>]}
+
+
+============================== 21:24:49.149971 | 1b1cd2f6-5f5e-4d9d-b0a5-0bfec5189fb9 ==============================
+[0m21:24:49.149971 [info ] [MainThread]: Running with dbt=1.11.8
+[0m21:24:49.149971 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\HP\\Desktop\\Portfolio\\shelf_monitoring\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\HP\\Desktop\\Portfolio\\shelf_monitoring\\dbt\\logs'}
+[0m21:24:49.179870 [info ] [MainThread]: dbt version: 1.11.8
+[0m21:24:49.181380 [info ] [MainThread]: python version: 3.12.10
+[0m21:24:49.181380 [info ] [MainThread]: python path: C:\Users\HP\Desktop\Portfolio\shelf_monitoring\venv\scripts\python.exe
+[0m21:24:49.182386 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m21:24:49.257390 [info ] [MainThread]: Using profiles dir at C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt
+[0m21:24:49.258429 [info ] [MainThread]: Using profiles.yml file at C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\profiles.yml
+[0m21:24:49.259396 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\dbt_project.yml
+[0m21:24:49.260397 [info ] [MainThread]: adapter type: postgres
+[0m21:24:49.261392 [info ] [MainThread]: adapter version: 1.10.0
+[0m21:24:49.382229 [info ] [MainThread]: Configuration:
+[0m21:24:49.382229 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:24:49.383240 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m21:24:49.384237 [info ] [MainThread]: Required dependencies:
+[0m21:24:49.385240 [debug] [MainThread]: Executing "git --help"
+[0m21:24:49.446766 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:24:49.447759 [debug] [MainThread]: STDERR: "b''"
+[0m21:24:49.448767 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:24:49.448767 [info ] [MainThread]: Connection:
+[0m21:24:49.449760 [info ] [MainThread]:   host: localhost
+[0m21:24:49.450240 [info ] [MainThread]:   port: 5432
+[0m21:24:49.450240 [info ] [MainThread]:   user: postgres
+[0m21:24:49.451252 [info ] [MainThread]:   database: shelf_monitoring
+[0m21:24:49.451252 [info ] [MainThread]:   schema: public
+[0m21:24:49.452246 [info ] [MainThread]:   connect_timeout: 10
+[0m21:24:49.452246 [info ] [MainThread]:   role: None
+[0m21:24:49.453246 [info ] [MainThread]:   search_path: None
+[0m21:24:49.453246 [info ] [MainThread]:   keepalives_idle: 0
+[0m21:24:49.454251 [info ] [MainThread]:   sslmode: None
+[0m21:24:49.454251 [info ] [MainThread]:   sslcert: None
+[0m21:24:49.455246 [info ] [MainThread]:   sslkey: None
+[0m21:24:49.456246 [info ] [MainThread]:   sslrootcert: None
+[0m21:24:49.457247 [info ] [MainThread]:   application_name: dbt
+[0m21:24:49.458251 [info ] [MainThread]:   retries: 1
+[0m21:24:49.459246 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m21:24:49.848309 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m21:24:51.821219 [debug] [MainThread]: Using postgres connection "debug"
+[0m21:24:51.822220 [debug] [MainThread]: On debug: select 1 as id
+[0m21:24:51.822220 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:24:51.873181 [debug] [MainThread]: SQL status: SELECT 1 in 0.050 seconds
+[0m21:24:51.875182 [debug] [MainThread]: On debug: Close
+[0m21:24:51.876182 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m21:24:51.876182 [info ] [MainThread]: [32mAll checks passed![0m
+[0m21:24:51.878181 [debug] [MainThread]: Command `dbt debug` succeeded at 21:24:51.878181 after 2.89 seconds
+[0m21:24:51.878181 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:24:51.879181 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018BC99B1730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018BC6E7AEA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018BCBA2E3F0>]}
+[0m21:24:51.879181 [debug] [MainThread]: Flushing usage events
+[0m21:24:53.318506 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:27:28.503568 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC77B8470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC91B57F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC768C800>]}
+
+
+============================== 21:27:28.511593 | 36ddec6e-8ba4-499d-aa78-2a2ea99fc156 ==============================
+[0m21:27:28.511593 [info ] [MainThread]: Running with dbt=1.11.8
+[0m21:27:28.512562 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\HP\\Desktop\\Portfolio\\shelf_monitoring\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\HP\\Desktop\\Portfolio\\shelf_monitoring\\dbt\\logs'}
+[0m21:27:28.974792 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '36ddec6e-8ba4-499d-aa78-2a2ea99fc156', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC9220500>]}
+[0m21:27:29.043382 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '36ddec6e-8ba4-499d-aa78-2a2ea99fc156', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC7A15790>]}
+[0m21:27:29.044747 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m21:27:29.373544 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m21:27:29.374545 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m21:27:29.375147 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '36ddec6e-8ba4-499d-aa78-2a2ea99fc156', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC97555E0>]}
+[0m21:27:31.318993 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '36ddec6e-8ba4-499d-aa78-2a2ea99fc156', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC91CE450>]}
+[0m21:27:31.380992 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\manifest.json
+[0m21:27:31.388788 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\semantic_manifest.json
+[0m21:27:31.409004 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '36ddec6e-8ba4-499d-aa78-2a2ea99fc156', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC99D8350>]}
+[0m21:27:31.410004 [info ] [MainThread]: Found 3 models, 465 macros
+[0m21:27:31.410004 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '36ddec6e-8ba4-499d-aa78-2a2ea99fc156', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC9A0E8D0>]}
+[0m21:27:31.412037 [info ] [MainThread]: 
+[0m21:27:31.412999 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m21:27:31.412999 [info ] [MainThread]: 
+[0m21:27:31.414002 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m21:27:31.415026 [debug] [ThreadPool]: Acquiring new postgres connection 'list_shelf_monitoring'
+[0m21:27:31.497408 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring"
+[0m21:27:31.497408 [debug] [ThreadPool]: On list_shelf_monitoring: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m21:27:31.498408 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:27:31.546668 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.048 seconds
+[0m21:27:31.547669 [debug] [ThreadPool]: On list_shelf_monitoring: Close
+[0m21:27:31.552627 [debug] [ThreadPool]: Acquiring new postgres connection 'list_shelf_monitoring_public'
+[0m21:27:31.558638 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring_public"
+[0m21:27:31.558638 [debug] [ThreadPool]: On list_shelf_monitoring_public: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring_public"} */
+select
+      'shelf_monitoring' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m21:27:31.559627 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:27:31.610920 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.051 seconds
+[0m21:27:31.611919 [debug] [ThreadPool]: On list_shelf_monitoring_public: ROLLBACK
+[0m21:27:31.612925 [debug] [ThreadPool]: On list_shelf_monitoring_public: Close
+[0m21:27:31.616927 [debug] [MainThread]: Using postgres connection "master"
+[0m21:27:31.617927 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m21:27:31.617927 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:27:31.674187 [debug] [MainThread]: SQL status: SELECT 0 in 0.056 seconds
+[0m21:27:31.675173 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '36ddec6e-8ba4-499d-aa78-2a2ea99fc156', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC9BB7CB0>]}
+[0m21:27:31.675173 [debug] [MainThread]: On master: ROLLBACK
+[0m21:27:31.676173 [debug] [MainThread]: On master: COMMIT
+[0m21:27:31.676173 [debug] [MainThread]: Using postgres connection "master"
+[0m21:27:31.677173 [debug] [MainThread]: On master: COMMIT
+[0m21:27:31.677173 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m21:27:31.678172 [debug] [MainThread]: On master: Close
+[0m21:27:31.684133 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.stg_predictions
+[0m21:27:31.684133 [info ] [Thread-1 (]: 1 of 1 START sql view model public.stg_predictions ............................. [RUN]
+[0m21:27:31.685141 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.shelf_monitoring.stg_predictions'
+[0m21:27:31.686175 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.stg_predictions
+[0m21:27:31.692220 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.stg_predictions"
+[0m21:27:31.694180 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.stg_predictions
+[0m21:27:31.729419 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.stg_predictions"
+[0m21:27:31.731377 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:27:31.732376 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+
+  create view "shelf_monitoring"."public"."stg_predictions__dbt_tmp"
+    
+    
+  as (
+    select
+    id,
+    image_name,
+    actual_label,
+    predicted_label,
+    confidence,
+    created_at
+from raw_predictions
+  );
+[0m21:27:31.732376 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m21:27:31.818235 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.086 seconds
+[0m21:27:31.824271 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:27:31.825276 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+alter table "shelf_monitoring"."public"."stg_predictions__dbt_tmp" rename to "stg_predictions"
+[0m21:27:31.828025 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m21:27:31.844078 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m21:27:31.844078 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:27:31.844078 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m21:27:31.848740 [debug] [Thread-1 (]: SQL status: COMMIT in 0.004 seconds
+[0m21:27:31.854781 [debug] [Thread-1 (]: Applying DROP to: "shelf_monitoring"."public"."stg_predictions__dbt_backup"
+[0m21:27:31.859782 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:27:31.859782 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+drop view if exists "shelf_monitoring"."public"."stg_predictions__dbt_backup" cascade
+[0m21:27:31.861776 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.001 seconds
+[0m21:27:31.864780 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: Close
+[0m21:27:31.866748 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '36ddec6e-8ba4-499d-aa78-2a2ea99fc156', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC4D89E20>]}
+[0m21:27:31.867744 [info ] [Thread-1 (]: 1 of 1 OK created sql view model public.stg_predictions ........................ [[32mCREATE VIEW[0m in 0.18s]
+[0m21:27:31.868741 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.stg_predictions
+[0m21:27:31.869744 [debug] [MainThread]: On master: COMMIT
+[0m21:27:31.870749 [debug] [MainThread]: Using postgres connection "master"
+[0m21:27:31.870749 [debug] [MainThread]: On master: COMMIT
+[0m21:27:31.870749 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m21:27:32.047821 [debug] [MainThread]: SQL status: COMMIT in 0.177 seconds
+[0m21:27:32.047821 [debug] [MainThread]: On master: Close
+[0m21:27:32.048861 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:27:32.049816 [debug] [MainThread]: Connection 'list_shelf_monitoring' was properly closed.
+[0m21:27:32.049816 [debug] [MainThread]: Connection 'list_shelf_monitoring_public' was properly closed.
+[0m21:27:32.050861 [debug] [MainThread]: Connection 'model.shelf_monitoring.stg_predictions' was properly closed.
+[0m21:27:32.050861 [info ] [MainThread]: 
+[0m21:27:32.051831 [info ] [MainThread]: Finished running 1 view model in 0 hours 0 minutes and 0.64 seconds (0.64s).
+[0m21:27:32.053861 [debug] [MainThread]: Command end result
+[0m21:27:32.086406 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\manifest.json
+[0m21:27:32.088433 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\semantic_manifest.json
+[0m21:27:32.095433 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\run_results.json
+[0m21:27:32.095433 [info ] [MainThread]: 
+[0m21:27:32.096426 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:27:32.097437 [info ] [MainThread]: 
+[0m21:27:32.097437 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+[0m21:27:32.099471 [debug] [MainThread]: Command `dbt run` succeeded at 21:27:32.099471 after 3.75 seconds
+[0m21:27:32.099471 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC77B8470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC99D8DA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024EC99D8410>]}
+[0m21:27:32.099471 [debug] [MainThread]: Flushing usage events
+[0m21:27:33.544114 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:28:38.131227 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B2084380E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20B1F89B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20B2C77D0>]}
+
+
+============================== 21:28:38.139852 | 36b48cf8-0562-4613-a790-1a5c9b9c032d ==============================
+[0m21:28:38.139852 [info ] [MainThread]: Running with dbt=1.11.8
+[0m21:28:38.140853 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\HP\\Desktop\\Portfolio\\shelf_monitoring\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\HP\\Desktop\\Portfolio\\shelf_monitoring\\dbt\\logs'}
+[0m21:28:38.365007 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '36b48cf8-0562-4613-a790-1a5c9b9c032d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20B6703B0>]}
+[0m21:28:38.435604 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '36b48cf8-0562-4613-a790-1a5c9b9c032d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20ABD11C0>]}
+[0m21:28:38.436602 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m21:28:38.756492 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m21:28:38.895405 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m21:28:38.895405 [debug] [MainThread]: Partial parsing: updated file: shelf_monitoring://models\marts\fct_stock_levels.sql
+[0m21:28:39.183658 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '36b48cf8-0562-4613-a790-1a5c9b9c032d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20D37C620>]}
+[0m21:28:39.251775 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\manifest.json
+[0m21:28:39.255734 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\semantic_manifest.json
+[0m21:28:39.281058 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '36b48cf8-0562-4613-a790-1a5c9b9c032d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20D35A120>]}
+[0m21:28:39.282075 [info ] [MainThread]: Found 3 models, 465 macros
+[0m21:28:39.283058 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '36b48cf8-0562-4613-a790-1a5c9b9c032d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20D332BA0>]}
+[0m21:28:39.285100 [info ] [MainThread]: 
+[0m21:28:39.285100 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m21:28:39.285100 [info ] [MainThread]: 
+[0m21:28:39.286521 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m21:28:39.291488 [debug] [ThreadPool]: Acquiring new postgres connection 'list_shelf_monitoring'
+[0m21:28:39.379060 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring"
+[0m21:28:39.380060 [debug] [ThreadPool]: On list_shelf_monitoring: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m21:28:39.380060 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:28:39.428889 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.049 seconds
+[0m21:28:39.430927 [debug] [ThreadPool]: On list_shelf_monitoring: Close
+[0m21:28:39.432926 [debug] [ThreadPool]: Acquiring new postgres connection 'list_shelf_monitoring_public'
+[0m21:28:39.438924 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring_public"
+[0m21:28:39.438924 [debug] [ThreadPool]: On list_shelf_monitoring_public: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring_public"} */
+select
+      'shelf_monitoring' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m21:28:39.439925 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:28:39.612688 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.173 seconds
+[0m21:28:39.613668 [debug] [ThreadPool]: On list_shelf_monitoring_public: ROLLBACK
+[0m21:28:39.614669 [debug] [ThreadPool]: On list_shelf_monitoring_public: Close
+[0m21:28:39.619704 [debug] [MainThread]: Using postgres connection "master"
+[0m21:28:39.620699 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m21:28:39.620699 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:28:39.673371 [debug] [MainThread]: SQL status: SELECT 1 in 0.052 seconds
+[0m21:28:39.675372 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '36b48cf8-0562-4613-a790-1a5c9b9c032d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20D11E4E0>]}
+[0m21:28:39.675372 [debug] [MainThread]: On master: ROLLBACK
+[0m21:28:39.676371 [debug] [MainThread]: On master: COMMIT
+[0m21:28:39.677368 [debug] [MainThread]: Using postgres connection "master"
+[0m21:28:39.677368 [debug] [MainThread]: On master: COMMIT
+[0m21:28:39.678370 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m21:28:39.678370 [debug] [MainThread]: On master: Close
+[0m21:28:39.685873 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.fct_stock_levels
+[0m21:28:39.686913 [info ] [Thread-1 (]: 1 of 2 START sql table model public.fct_stock_levels ........................... [RUN]
+[0m21:28:39.687880 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.shelf_monitoring.fct_stock_levels'
+[0m21:28:39.687880 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.fct_stock_levels
+[0m21:28:39.697887 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.fct_stock_levels"
+[0m21:28:39.699880 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.fct_stock_levels
+[0m21:28:39.751716 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.fct_stock_levels"
+[0m21:28:39.753398 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m21:28:39.754481 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+
+  
+    
+
+  create  table "shelf_monitoring"."public"."fct_stock_levels__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    predicted_label as stock_level,
+    count(*) as total_images,
+    round(avg(confidence)::numeric, 2) as avg_confidence
+from stg_predictions
+group by predicted_label
+order by total_images desc
+  );
+  
+[0m21:28:39.755023 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m21:28:39.815185 [debug] [Thread-1 (]: SQL status: SELECT 4 in 0.060 seconds
+[0m21:28:39.826274 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m21:28:39.826274 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+alter table "shelf_monitoring"."public"."fct_stock_levels__dbt_tmp" rename to "fct_stock_levels"
+[0m21:28:39.827272 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m21:28:39.851363 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: COMMIT
+[0m21:28:39.851363 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m21:28:39.852367 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: COMMIT
+[0m21:28:39.855624 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m21:28:39.861536 [debug] [Thread-1 (]: Applying DROP to: "shelf_monitoring"."public"."fct_stock_levels__dbt_backup"
+[0m21:28:39.866549 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m21:28:39.867553 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+drop table if exists "shelf_monitoring"."public"."fct_stock_levels__dbt_backup" cascade
+[0m21:28:39.868549 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.001 seconds
+[0m21:28:39.870595 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: Close
+[0m21:28:39.872595 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '36b48cf8-0562-4613-a790-1a5c9b9c032d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B2084F9E80>]}
+[0m21:28:39.873560 [info ] [Thread-1 (]: 1 of 2 OK created sql table model public.fct_stock_levels ...................... [[32mSELECT 4[0m in 0.18s]
+[0m21:28:39.875555 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.fct_stock_levels
+[0m21:28:39.875555 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.stg_predictions
+[0m21:28:39.876555 [info ] [Thread-1 (]: 2 of 2 START sql view model public.stg_predictions ............................. [RUN]
+[0m21:28:39.876555 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.shelf_monitoring.fct_stock_levels, now model.shelf_monitoring.stg_predictions)
+[0m21:28:39.877597 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.stg_predictions
+[0m21:28:39.880596 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.stg_predictions"
+[0m21:28:39.881555 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.stg_predictions
+[0m21:28:39.952314 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.stg_predictions"
+[0m21:28:39.953317 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:28:39.953317 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+
+  create view "shelf_monitoring"."public"."stg_predictions__dbt_tmp"
+    
+    
+  as (
+    select
+    id,
+    image_name,
+    actual_label,
+    predicted_label,
+    confidence,
+    created_at
+from raw_predictions
+  );
+[0m21:28:39.954318 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:28:39.999888 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.046 seconds
+[0m21:28:40.003848 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:28:40.003848 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+alter table "shelf_monitoring"."public"."stg_predictions" rename to "stg_predictions__dbt_backup"
+[0m21:28:40.005158 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m21:28:40.008165 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:28:40.008165 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+alter table "shelf_monitoring"."public"."stg_predictions__dbt_tmp" rename to "stg_predictions"
+[0m21:28:40.009165 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m21:28:40.013164 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m21:28:40.013164 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:28:40.014165 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m21:28:40.022841 [debug] [Thread-1 (]: SQL status: COMMIT in 0.008 seconds
+[0m21:28:40.025836 [debug] [Thread-1 (]: Applying DROP to: "shelf_monitoring"."public"."stg_predictions__dbt_backup"
+[0m21:28:40.028835 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:28:40.028835 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+drop view if exists "shelf_monitoring"."public"."stg_predictions__dbt_backup" cascade
+[0m21:28:40.035707 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.006 seconds
+[0m21:28:40.036712 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: Close
+[0m21:28:40.037702 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '36b48cf8-0562-4613-a790-1a5c9b9c032d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20D76EEA0>]}
+[0m21:28:40.038664 [info ] [Thread-1 (]: 2 of 2 OK created sql view model public.stg_predictions ........................ [[32mCREATE VIEW[0m in 0.16s]
+[0m21:28:40.039661 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.stg_predictions
+[0m21:28:40.041666 [debug] [MainThread]: On master: COMMIT
+[0m21:28:40.041666 [debug] [MainThread]: Using postgres connection "master"
+[0m21:28:40.041666 [debug] [MainThread]: On master: COMMIT
+[0m21:28:40.042700 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m21:28:40.083514 [debug] [MainThread]: SQL status: COMMIT in 0.041 seconds
+[0m21:28:40.084510 [debug] [MainThread]: On master: Close
+[0m21:28:40.084510 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:28:40.086017 [debug] [MainThread]: Connection 'list_shelf_monitoring' was properly closed.
+[0m21:28:40.086017 [debug] [MainThread]: Connection 'list_shelf_monitoring_public' was properly closed.
+[0m21:28:40.086017 [debug] [MainThread]: Connection 'model.shelf_monitoring.stg_predictions' was properly closed.
+[0m21:28:40.087024 [info ] [MainThread]: 
+[0m21:28:40.087024 [info ] [MainThread]: Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.80 seconds (0.80s).
+[0m21:28:40.089066 [debug] [MainThread]: Command end result
+[0m21:28:40.118030 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\manifest.json
+[0m21:28:40.121059 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\semantic_manifest.json
+[0m21:28:40.127064 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\run_results.json
+[0m21:28:40.128066 [info ] [MainThread]: 
+[0m21:28:40.129024 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:28:40.129024 [info ] [MainThread]: 
+[0m21:28:40.130046 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[0m21:28:40.131028 [debug] [MainThread]: Command `dbt run` succeeded at 21:28:40.131028 after 2.15 seconds
+[0m21:28:40.131028 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B2084380E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20B734B00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B20C905730>]}
+[0m21:28:40.132064 [debug] [MainThread]: Flushing usage events
+[0m21:28:41.592899 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:32:23.147933 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D21F76D50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D22107B30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D21FFC3B0>]}
+
+
+============================== 21:32:23.156933 | 88d103d6-6a87-4f0b-bd82-531b7c45c5a3 ==============================
+[0m21:32:23.156933 [info ] [MainThread]: Running with dbt=1.11.8
+[0m21:32:23.157932 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\HP\\Desktop\\Portfolio\\shelf_monitoring\\dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt run', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\HP\\Desktop\\Portfolio\\shelf_monitoring\\dbt\\logs'}
+[0m21:32:23.375569 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '88d103d6-6a87-4f0b-bd82-531b7c45c5a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D235F8980>]}
+[0m21:32:23.447127 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '88d103d6-6a87-4f0b-bd82-531b7c45c5a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D21F50110>]}
+[0m21:32:23.448389 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m21:32:23.772763 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m21:32:23.930105 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m21:32:23.931104 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m21:32:23.931104 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m21:32:23.956150 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '88d103d6-6a87-4f0b-bd82-531b7c45c5a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D23B22330>]}
+[0m21:32:24.030640 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\manifest.json
+[0m21:32:24.034593 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\semantic_manifest.json
+[0m21:32:24.056716 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '88d103d6-6a87-4f0b-bd82-531b7c45c5a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D23D06750>]}
+[0m21:32:24.056716 [info ] [MainThread]: Found 3 models, 465 macros
+[0m21:32:24.057717 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '88d103d6-6a87-4f0b-bd82-531b7c45c5a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D23CDE750>]}
+[0m21:32:24.059747 [info ] [MainThread]: 
+[0m21:32:24.060708 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m21:32:24.060708 [info ] [MainThread]: 
+[0m21:32:24.061749 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m21:32:24.065707 [debug] [ThreadPool]: Acquiring new postgres connection 'list_shelf_monitoring'
+[0m21:32:24.156358 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring"
+[0m21:32:24.156358 [debug] [ThreadPool]: On list_shelf_monitoring: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m21:32:24.156358 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:32:24.208944 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.052 seconds
+[0m21:32:24.210903 [debug] [ThreadPool]: On list_shelf_monitoring: Close
+[0m21:32:24.213042 [debug] [ThreadPool]: Acquiring new postgres connection 'list_shelf_monitoring_public'
+[0m21:32:24.219909 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring_public"
+[0m21:32:24.219909 [debug] [ThreadPool]: On list_shelf_monitoring_public: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring_public"} */
+select
+      'shelf_monitoring' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m21:32:24.219909 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m21:32:24.269400 [debug] [ThreadPool]: SQL status: SELECT 3 in 0.049 seconds
+[0m21:32:24.270405 [debug] [ThreadPool]: On list_shelf_monitoring_public: ROLLBACK
+[0m21:32:24.271426 [debug] [ThreadPool]: On list_shelf_monitoring_public: Close
+[0m21:32:24.278425 [debug] [MainThread]: Using postgres connection "master"
+[0m21:32:24.279396 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m21:32:24.280440 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:32:24.457204 [debug] [MainThread]: SQL status: SELECT 1 in 0.177 seconds
+[0m21:32:24.459213 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '88d103d6-6a87-4f0b-bd82-531b7c45c5a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D241D4B60>]}
+[0m21:32:24.459213 [debug] [MainThread]: On master: ROLLBACK
+[0m21:32:24.460213 [debug] [MainThread]: On master: COMMIT
+[0m21:32:24.460213 [debug] [MainThread]: Using postgres connection "master"
+[0m21:32:24.460213 [debug] [MainThread]: On master: COMMIT
+[0m21:32:24.461213 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m21:32:24.461213 [debug] [MainThread]: On master: Close
+[0m21:32:24.468204 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.fct_stock_levels
+[0m21:32:24.469214 [info ] [Thread-1 (]: 1 of 2 START sql table model public.fct_stock_levels ........................... [RUN]
+[0m21:32:24.470214 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.shelf_monitoring.fct_stock_levels'
+[0m21:32:24.470214 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.fct_stock_levels
+[0m21:32:24.477212 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.fct_stock_levels"
+[0m21:32:24.479206 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.fct_stock_levels
+[0m21:32:24.522809 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.fct_stock_levels"
+[0m21:32:24.523810 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m21:32:24.524772 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+
+  
+    
+
+  create  table "shelf_monitoring"."public"."fct_stock_levels__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    predicted_label as stock_level,
+    count(*) as total_images,
+    round(avg(confidence)::numeric, 2) as avg_confidence
+from stg_predictions
+group by predicted_label
+order by total_images desc
+  );
+  
+[0m21:32:24.524772 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m21:32:24.572861 [debug] [Thread-1 (]: SQL status: SELECT 4 in 0.047 seconds
+[0m21:32:24.582899 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m21:32:24.582899 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+alter table "shelf_monitoring"."public"."fct_stock_levels" rename to "fct_stock_levels__dbt_backup"
+[0m21:32:24.583898 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m21:32:24.586948 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m21:32:24.586948 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+alter table "shelf_monitoring"."public"."fct_stock_levels__dbt_tmp" rename to "fct_stock_levels"
+[0m21:32:24.588905 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m21:32:24.611508 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: COMMIT
+[0m21:32:24.612508 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m21:32:24.612508 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: COMMIT
+[0m21:32:24.616504 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m21:32:24.623541 [debug] [Thread-1 (]: Applying DROP to: "shelf_monitoring"."public"."fct_stock_levels__dbt_backup"
+[0m21:32:24.629498 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m21:32:24.630540 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+drop table if exists "shelf_monitoring"."public"."fct_stock_levels__dbt_backup" cascade
+[0m21:32:24.634540 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.004 seconds
+[0m21:32:24.636503 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: Close
+[0m21:32:24.639498 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '88d103d6-6a87-4f0b-bd82-531b7c45c5a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D2425BF20>]}
+[0m21:32:24.640499 [info ] [Thread-1 (]: 1 of 2 OK created sql table model public.fct_stock_levels ...................... [[32mSELECT 4[0m in 0.17s]
+[0m21:32:24.641504 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.fct_stock_levels
+[0m21:32:24.642498 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.stg_predictions
+[0m21:32:24.643503 [info ] [Thread-1 (]: 2 of 2 START sql view model public.stg_predictions ............................. [RUN]
+[0m21:32:24.643503 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.shelf_monitoring.fct_stock_levels, now model.shelf_monitoring.stg_predictions)
+[0m21:32:24.644544 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.stg_predictions
+[0m21:32:24.646539 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.stg_predictions"
+[0m21:32:24.647498 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.stg_predictions
+[0m21:32:24.672056 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.stg_predictions"
+[0m21:32:24.673071 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:32:24.674063 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+
+  create view "shelf_monitoring"."public"."stg_predictions__dbt_tmp"
+    
+    
+  as (
+    select
+    id,
+    image_name,
+    actual_label,
+    predicted_label,
+    confidence,
+    created_at
+from raw_predictions
+  );
+[0m21:32:24.674063 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m21:32:24.721751 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.047 seconds
+[0m21:32:24.724749 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:32:24.724749 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+alter table "shelf_monitoring"."public"."stg_predictions" rename to "stg_predictions__dbt_backup"
+[0m21:32:24.725750 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m21:32:24.729750 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:32:24.729750 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+alter table "shelf_monitoring"."public"."stg_predictions__dbt_tmp" rename to "stg_predictions"
+[0m21:32:24.730754 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m21:32:24.732750 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m21:32:24.732750 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:32:24.732750 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m21:32:24.736510 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m21:32:24.739514 [debug] [Thread-1 (]: Applying DROP to: "shelf_monitoring"."public"."stg_predictions__dbt_backup"
+[0m21:32:24.743515 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m21:32:24.743515 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+drop view if exists "shelf_monitoring"."public"."stg_predictions__dbt_backup" cascade
+[0m21:32:24.745550 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.001 seconds
+[0m21:32:24.747547 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: Close
+[0m21:32:24.748551 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '88d103d6-6a87-4f0b-bd82-531b7c45c5a3', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D242880E0>]}
+[0m21:32:24.749547 [info ] [Thread-1 (]: 2 of 2 OK created sql view model public.stg_predictions ........................ [[32mCREATE VIEW[0m in 0.11s]
+[0m21:32:24.750514 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.stg_predictions
+[0m21:32:24.751503 [debug] [MainThread]: On master: COMMIT
+[0m21:32:24.752504 [debug] [MainThread]: Using postgres connection "master"
+[0m21:32:24.752504 [debug] [MainThread]: On master: COMMIT
+[0m21:32:24.752504 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m21:32:24.917701 [debug] [MainThread]: SQL status: COMMIT in 0.165 seconds
+[0m21:32:24.917701 [debug] [MainThread]: On master: Close
+[0m21:32:24.918750 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m21:32:24.918750 [debug] [MainThread]: Connection 'list_shelf_monitoring' was properly closed.
+[0m21:32:24.919707 [debug] [MainThread]: Connection 'list_shelf_monitoring_public' was properly closed.
+[0m21:32:24.919707 [debug] [MainThread]: Connection 'model.shelf_monitoring.stg_predictions' was properly closed.
+[0m21:32:24.921706 [info ] [MainThread]: 
+[0m21:32:24.921706 [info ] [MainThread]: Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.86 seconds (0.86s).
+[0m21:32:24.922706 [debug] [MainThread]: Command end result
+[0m21:32:24.951712 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\manifest.json
+[0m21:32:24.953749 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\semantic_manifest.json
+[0m21:32:24.960750 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\HP\Desktop\Portfolio\shelf_monitoring\dbt\target\run_results.json
+[0m21:32:24.961712 [info ] [MainThread]: 
+[0m21:32:24.962708 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m21:32:24.962708 [info ] [MainThread]: 
+[0m21:32:24.963748 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[0m21:32:24.964713 [debug] [MainThread]: Command `dbt run` succeeded at 21:32:24.964713 after 1.96 seconds
+[0m21:32:24.964713 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D218A1CA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D218A15E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D218A3320>]}
+[0m21:32:24.965752 [debug] [MainThread]: Flushing usage events
+[0m21:32:26.401149 [debug] [MainThread]: An error was encountered while trying to flush usage events

@@ -1,0 +1,12 @@
+shelf_monitoring:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: postgres
+      password: root1704
+      port: 5432
+      dbname: shelf_monitoring
+      schema: public
+      threads: 1

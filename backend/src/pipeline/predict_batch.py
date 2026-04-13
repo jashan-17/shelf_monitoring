@@ -4,7 +4,7 @@ import pandas as pd
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
-MODEL_PATH = "backend/models/model.h5"
+MODEL_PATH = "backend/models/model.keras"
 IMAGE_FOLDER = "data/raw_images"
 OUTPUT_CSV = "data/predictions/predictions.csv"
 
