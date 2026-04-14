@@ -1,0 +1,46 @@
+services:
+  airflow-webserver:
+    build: .
+    container_name: airflow_webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY}
+      DBT_PROFILES_DIR: /opt/airflow/dbt/profiles
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./backend:/opt/airflow/backend
+      - ./data:/opt/airflow/data
+      - ./dbt:/opt/airflow/dbt
+    ports:
+      - "8080:8080"
+    command: bash -c "airflow db init && airflow users create --username admin --password admin --firstname Jerry --lastname Singh --role Admin --email admin@example.com || true && airflow webserver"
+
+  airflow-scheduler:
+    build: .
+    container_name: airflow_scheduler
+    depends_on:
+      - airflow-webserver
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${AIRFLOW_SECRET_KEY}
+      DBT_PROFILES_DIR: /opt/airflow/dbt/profiles
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./backend:/opt/airflow/backend
+      - ./data:/opt/airflow/data
+      - ./dbt:/opt/airflow/dbt
+    command: airflow scheduler

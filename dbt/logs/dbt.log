@@ -676,3 +676,1005 @@ drop view if exists "shelf_monitoring"."public"."stg_predictions__dbt_backup" ca
 [0m21:32:24.964713 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D218A1CA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D218A15E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025D218A3320>]}
 [0m21:32:24.965752 [debug] [MainThread]: Flushing usage events
 [0m21:32:26.401149 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:06:07.570776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f37ff953020>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f37ff628230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f37fea6d7f0>]}
+
+
+============================== 13:06:07.583417 | 23ff3841-23f1-4a49-b34d-f1d31b5e1464 ==============================
+[0m13:06:07.583417 [info ] [MainThread]: Running with dbt=1.11.8
+[0m13:06:07.585223 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'log_path': '/opt/airflow/dbt/logs', 'use_colors': 'True', 'no_print': 'None', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'log_format': 'default', 'write_json': 'True', 'version_check': 'True', 'target_path': 'None', 'quiet': 'False', 'profiles_dir': '/opt/airflow/dbt', 'static_parser': 'True', 'log_cache_events': 'False', 'debug': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'indirect_selection': 'eager', 'empty': 'False', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt run'}
+[0m13:06:08.017862 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '23ff3841-23f1-4a49-b34d-f1d31b5e1464', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f37fe7a7ec0>]}
+[0m13:06:08.121087 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '23ff3841-23f1-4a49-b34d-f1d31b5e1464', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f37ff699460>]}
+[0m13:06:08.124624 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m13:06:08.271497 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m13:06:08.607712 [debug] [MainThread]: Partial parsing enabled: 134 files deleted, 134 files added, 0 files changed.
+[0m13:06:08.609425 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/incremental/strategies.sql
+[0m13:06:08.610919 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/apply_grants.sql
+[0m13:06:08.612520 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/view/drop.sql
+[0m13:06:08.614071 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/catalog.sql
+[0m13:06:08.615681 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/hooks.sql
+[0m13:06:08.617141 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/tests/helpers.sql
+[0m13:06:08.618438 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/date_spine.sql
+[0m13:06:08.619921 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/incremental/is_incremental.sql
+[0m13:06:08.621384 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/functions/helpers.sql
+[0m13:06:08.622749 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/view/rename.sql
+[0m13:06:08.624097 [debug] [MainThread]: Partial parsing: added file: dbt://macros/generic_test_sql/accepted_values.sql
+[0m13:06:08.625463 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/clone/clone.sql
+[0m13:06:08.627009 [debug] [MainThread]: Partial parsing: added file: dbt://macros/unit_test_sql/get_fixture_sql.sql
+[0m13:06:08.628512 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/utils/last_day.sql
+[0m13:06:08.630012 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/table/create.sql
+[0m13:06:08.631615 [debug] [MainThread]: Partial parsing: added file: dbt://macros/get_custom_name/get_custom_alias.sql
+[0m13:06:08.633232 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/literal.sql
+[0m13:06:08.635069 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/rename.sql
+[0m13:06:08.636624 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/hash.sql
+[0m13:06:08.638033 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/right.sql
+[0m13:06:08.639470 [debug] [MainThread]: Partial parsing: added file: shelf_monitoring://models/marts/fct_stock_levels.sql
+[0m13:06:08.641092 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/escape_single_quotes.sql
+[0m13:06:08.642591 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/last_day.sql
+[0m13:06:08.643996 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/snapshots/snapshot.sql
+[0m13:06:08.645407 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/array_concat.sql
+[0m13:06:08.646785 [debug] [MainThread]: Partial parsing: added file: dbt://macros/generic_test_sql/not_null.sql
+[0m13:06:08.648350 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/split_part.sql
+[0m13:06:08.649733 [debug] [MainThread]: Partial parsing: added file: dbt://docs/overview.md
+[0m13:06:08.651121 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/seeds/helpers.sql
+[0m13:06:08.652363 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/view/create.sql
+[0m13:06:08.653572 [debug] [MainThread]: Partial parsing: added file: dbt://macros/generic_test_sql/unique.sql
+[0m13:06:08.655147 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations.sql
+[0m13:06:08.656485 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/timestamps.sql
+[0m13:06:08.657812 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/any_value.sql
+[0m13:06:08.659068 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/generate_series.sql
+[0m13:06:08.660237 [debug] [MainThread]: Partial parsing: added file: dbt://tests/generic/builtin.sql
+[0m13:06:08.661987 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/table/replace.sql
+[0m13:06:08.663332 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/materializations/incremental_strategies.sql
+[0m13:06:08.664705 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/length.sql
+[0m13:06:08.666200 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/table.sql
+[0m13:06:08.667734 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/indexes.sql
+[0m13:06:08.669683 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/incremental/merge.sql
+[0m13:06:08.671212 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/adapters.sql
+[0m13:06:08.672568 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/view/rename.sql
+[0m13:06:08.673863 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/functions/scalar.sql
+[0m13:06:08.675338 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/schema.sql
+[0m13:06:08.676928 [debug] [MainThread]: Partial parsing: added file: shelf_monitoring://models/intermediate/int_stock_trends.sql
+[0m13:06:08.678302 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/table/drop.sql
+[0m13:06:08.679628 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/table/replace.sql
+[0m13:06:08.680957 [debug] [MainThread]: Partial parsing: added file: dbt://macros/etc/statement.sql
+[0m13:06:08.682341 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/utils/split_part.sql
+[0m13:06:08.683732 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/materialized_view/rename.sql
+[0m13:06:08.685069 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/dateadd.sql
+[0m13:06:08.686358 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/equals.sql
+[0m13:06:08.687627 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/materialized_view/rename.sql
+[0m13:06:08.688977 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/table/rename.sql
+[0m13:06:08.690634 [debug] [MainThread]: Partial parsing: added file: shelf_monitoring://models/staging/stg_predictions.sql
+[0m13:06:08.692300 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/incremental/column_helpers.sql
+[0m13:06:08.693875 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/materialized_view/refresh.sql
+[0m13:06:08.695501 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/view/replace.sql
+[0m13:06:08.697141 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/bool_or.sql
+[0m13:06:08.698713 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/materialized_view/replace.sql
+[0m13:06:08.700131 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/clone/can_clone_table.sql
+[0m13:06:08.701583 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/snapshots/helpers.sql
+[0m13:06:08.703017 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/position.sql
+[0m13:06:08.704505 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/materialized_view/drop.sql
+[0m13:06:08.705934 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/snapshots/strategies.sql
+[0m13:06:08.707278 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/data_types.sql
+[0m13:06:08.708715 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/materialized_view.sql
+[0m13:06:08.710216 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/configs.sql
+[0m13:06:08.711692 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/materialized_view/create.sql
+[0m13:06:08.712949 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/metadata.sql
+[0m13:06:08.714314 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/validate_sql.sql
+[0m13:06:08.715666 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/materialized_view/refresh.sql
+[0m13:06:08.717057 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/clone/create_or_replace_clone.sql
+[0m13:06:08.718496 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/utils/any_value.sql
+[0m13:06:08.719891 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/utils/datediff.sql
+[0m13:06:08.721176 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/create_intermediate.sql
+[0m13:06:08.722449 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/replace.sql
+[0m13:06:08.724119 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/utils/listagg.sql
+[0m13:06:08.725836 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/rename_intermediate.sql
+[0m13:06:08.727436 [debug] [MainThread]: Partial parsing: added file: dbt://macros/get_custom_name/get_custom_schema.sql
+[0m13:06:08.728939 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/date.sql
+[0m13:06:08.730442 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/replace.sql
+[0m13:06:08.732107 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/utils/columns_spec_ddl.sql
+[0m13:06:08.733626 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/show.sql
+[0m13:06:08.735039 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/datediff.sql
+[0m13:06:08.736466 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/intersect.sql
+[0m13:06:08.738114 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/timestamps.sql
+[0m13:06:08.739707 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/table/rename.sql
+[0m13:06:08.741217 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/materialized_view/drop.sql
+[0m13:06:08.742564 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/tests/unit.sql
+[0m13:06:08.743967 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/schema.sql
+[0m13:06:08.745777 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/materialized_view/create.sql
+[0m13:06:08.747220 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/columns.sql
+[0m13:06:08.748680 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/materialized_view/alter.sql
+[0m13:06:08.750083 [debug] [MainThread]: Partial parsing: added file: dbt://macros/python_model/python.sql
+[0m13:06:08.751609 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/drop_backup.sql
+[0m13:06:08.753044 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/snapshots/snapshot_merge.sql
+[0m13:06:08.754375 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/create.sql
+[0m13:06:08.755711 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/tests/where_subquery.sql
+[0m13:06:08.757085 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/tests/test.sql
+[0m13:06:08.758948 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/materializations/functions/scalar.sql
+[0m13:06:08.760322 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/seeds/seed.sql
+[0m13:06:08.761557 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/view/drop.sql
+[0m13:06:08.762898 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/except.sql
+[0m13:06:08.764200 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/incremental/incremental.sql
+[0m13:06:08.765662 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/persist_docs.sql
+[0m13:06:08.767068 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/functions/aggregate.sql
+[0m13:06:08.768294 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/concat.sql
+[0m13:06:08.769533 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/drop.sql
+[0m13:06:08.770890 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/listagg.sql
+[0m13:06:08.772456 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/cast_bool_to_text.sql
+[0m13:06:08.774034 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/materialized_view/alter.sql
+[0m13:06:08.775309 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/view/replace.sql
+[0m13:06:08.776618 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/array_construct.sql
+[0m13:06:08.777949 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/array_append.sql
+[0m13:06:08.779473 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/date_trunc.sql
+[0m13:06:08.780874 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/relations/materialized_view/describe.sql
+[0m13:06:08.782151 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/create_backup.sql
+[0m13:06:08.783438 [debug] [MainThread]: Partial parsing: added file: dbt://macros/generic_test_sql/relationships.sql
+[0m13:06:08.784789 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/utils/dateadd.sql
+[0m13:06:08.786402 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/cast.sql
+[0m13:06:08.787735 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/freshness.sql
+[0m13:06:08.788970 [debug] [MainThread]: Partial parsing: added file: dbt://macros/etc/datetime.sql
+[0m13:06:08.790197 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/view.sql
+[0m13:06:08.791436 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/functions/function.sql
+[0m13:06:08.792842 [debug] [MainThread]: Partial parsing: added file: dbt://macros/utils/safe_cast.sql
+[0m13:06:08.794325 [debug] [MainThread]: Partial parsing: added file: dbt_postgres://macros/materializations/snapshot_merge.sql
+[0m13:06:08.795641 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/column/columns_spec_ddl.sql
+[0m13:06:08.796999 [debug] [MainThread]: Partial parsing: added file: dbt://macros/get_custom_name/get_custom_database.sql
+[0m13:06:08.798288 [debug] [MainThread]: Partial parsing: added file: dbt://macros/adapters/relation.sql
+[0m13:06:08.799643 [debug] [MainThread]: Partial parsing: added file: dbt://macros/materializations/models/incremental/on_schema_change.sql
+[0m13:06:08.801630 [debug] [MainThread]: Partial parsing: added file: dbt://macros/relations/table/drop.sql
+[0m13:06:08.802871 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\last_day.sql
+[0m13:06:08.804180 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\snapshots\helpers.sql
+[0m13:06:08.805332 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\catalog.sql
+[0m13:06:08.806780 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\tests\test.sql
+[0m13:06:08.808354 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\table\create.sql
+[0m13:06:08.809622 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\array_construct.sql
+[0m13:06:08.810746 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\utils\any_value.sql
+[0m13:06:08.811890 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\timestamps.sql
+[0m13:06:08.813013 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\validate_sql.sql
+[0m13:06:08.814518 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\data_types.sql
+[0m13:06:08.815844 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\materialized_view\rename.sql
+[0m13:06:08.817067 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\materialized_view\alter.sql
+[0m13:06:08.818264 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\functions\scalar.sql
+[0m13:06:08.819426 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\create_backup.sql
+[0m13:06:08.820651 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\materialized_view\create.sql
+[0m13:06:08.822106 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\escape_single_quotes.sql
+[0m13:06:08.823662 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\hooks.sql
+[0m13:06:08.825011 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\tests\helpers.sql
+[0m13:06:08.826333 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\dateadd.sql
+[0m13:06:08.827698 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\table\rename.sql
+[0m13:06:08.829213 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\utils\dateadd.sql
+[0m13:06:08.830600 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\table\rename.sql
+[0m13:06:08.831996 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\tests\unit.sql
+[0m13:06:08.833464 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\incremental\column_helpers.sql
+[0m13:06:08.834869 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\timestamps.sql
+[0m13:06:08.836225 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\etc\datetime.sql
+[0m13:06:08.837491 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\table\replace.sql
+[0m13:06:08.838759 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\date_spine.sql
+[0m13:06:08.840040 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\rename.sql
+[0m13:06:08.841405 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\split_part.sql
+[0m13:06:08.842993 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations.sql
+[0m13:06:08.844295 [debug] [MainThread]: Partial parsing: deleted file: shelf_monitoring://models\intermediate\int_stock_trends.sql
+[0m13:06:08.845920 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\apply_grants.sql
+[0m13:06:08.847229 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\unit_test_sql\get_fixture_sql.sql
+[0m13:06:08.848762 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\materialized_view\refresh.sql
+[0m13:06:08.850168 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\materialized_view\create.sql
+[0m13:06:08.851400 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\concat.sql
+[0m13:06:08.852685 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\any_value.sql
+[0m13:06:08.853871 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\utils\datediff.sql
+[0m13:06:08.855200 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\table\drop.sql
+[0m13:06:08.856593 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\table.sql
+[0m13:06:08.857934 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\view\replace.sql
+[0m13:06:08.859179 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\materializations\incremental_strategies.sql
+[0m13:06:08.860373 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\replace.sql
+[0m13:06:08.861590 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\functions\function.sql
+[0m13:06:08.863147 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\date_trunc.sql
+[0m13:06:08.864443 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\length.sql
+[0m13:06:08.865729 [debug] [MainThread]: Partial parsing: deleted file: dbt://tests\generic\builtin.sql
+[0m13:06:08.866992 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\except.sql
+[0m13:06:08.868265 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\materialized_view\drop.sql
+[0m13:06:08.869707 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\view\drop.sql
+[0m13:06:08.870998 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\array_concat.sql
+[0m13:06:08.872272 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\incremental\incremental.sql
+[0m13:06:08.873415 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\rename_intermediate.sql
+[0m13:06:08.874475 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\utils\split_part.sql
+[0m13:06:08.875803 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\position.sql
+[0m13:06:08.877419 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\materialized_view.sql
+[0m13:06:08.879149 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\tests\where_subquery.sql
+[0m13:06:08.880418 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\view\drop.sql
+[0m13:06:08.881839 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\generic_test_sql\relationships.sql
+[0m13:06:08.883698 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\date.sql
+[0m13:06:08.885182 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\materialized_view\drop.sql
+[0m13:06:08.886530 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\snapshots\strategies.sql
+[0m13:06:08.888078 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\functions\aggregate.sql
+[0m13:06:08.889358 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\safe_cast.sql
+[0m13:06:08.891084 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\generic_test_sql\accepted_values.sql
+[0m13:06:08.892369 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\datediff.sql
+[0m13:06:08.893730 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\generic_test_sql\not_null.sql
+[0m13:06:08.894963 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\utils\last_day.sql
+[0m13:06:08.896137 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\incremental\merge.sql
+[0m13:06:08.897402 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\view\rename.sql
+[0m13:06:08.898589 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\get_custom_name\get_custom_schema.sql
+[0m13:06:08.899849 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\view\create.sql
+[0m13:06:08.901017 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\array_append.sql
+[0m13:06:08.902208 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\utils\listagg.sql
+[0m13:06:08.903596 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\materialized_view\replace.sql
+[0m13:06:08.905402 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\columns.sql
+[0m13:06:08.906666 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\replace.sql
+[0m13:06:08.907915 [debug] [MainThread]: Partial parsing: deleted file: shelf_monitoring://models\marts\fct_stock_levels.sql
+[0m13:06:08.909293 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\materialized_view\describe.sql
+[0m13:06:08.910673 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\snapshots\snapshot.sql
+[0m13:06:08.912077 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\view.sql
+[0m13:06:08.913632 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\column\columns_spec_ddl.sql
+[0m13:06:08.914788 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\generic_test_sql\unique.sql
+[0m13:06:08.915895 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\materialized_view\rename.sql
+[0m13:06:08.917244 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\bool_or.sql
+[0m13:06:08.919027 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\etc\statement.sql
+[0m13:06:08.920594 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\functions\helpers.sql
+[0m13:06:08.921987 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\clone\can_clone_table.sql
+[0m13:06:08.923482 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\cast.sql
+[0m13:06:08.924966 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\get_custom_name\get_custom_alias.sql
+[0m13:06:08.926400 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\create_intermediate.sql
+[0m13:06:08.927782 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\relation.sql
+[0m13:06:08.929014 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\utils\columns_spec_ddl.sql
+[0m13:06:08.930281 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\view\replace.sql
+[0m13:06:08.931546 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\table\replace.sql
+[0m13:06:08.932879 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\drop_backup.sql
+[0m13:06:08.934022 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\materializations\functions\scalar.sql
+[0m13:06:08.935147 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\materialized_view\alter.sql
+[0m13:06:08.936321 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\metadata.sql
+[0m13:06:08.937465 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\materializations\snapshot_merge.sql
+[0m13:06:08.938753 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\generate_series.sql
+[0m13:06:08.940178 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\intersect.sql
+[0m13:06:08.941435 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\table\drop.sql
+[0m13:06:08.942708 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\clone\clone.sql
+[0m13:06:08.944033 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\view\rename.sql
+[0m13:06:08.945484 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\schema.sql
+[0m13:06:08.946978 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\drop.sql
+[0m13:06:08.948263 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\show.sql
+[0m13:06:08.949510 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\get_custom_name\get_custom_database.sql
+[0m13:06:08.950732 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\configs.sql
+[0m13:06:08.952179 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\listagg.sql
+[0m13:06:08.953608 [debug] [MainThread]: Partial parsing: deleted file: shelf_monitoring://models\staging\stg_predictions.sql
+[0m13:06:08.955012 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\incremental\strategies.sql
+[0m13:06:08.956287 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\hash.sql
+[0m13:06:08.957551 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\python_model\python.sql
+[0m13:06:08.958733 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\clone\create_or_replace_clone.sql
+[0m13:06:08.960279 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\cast_bool_to_text.sql
+[0m13:06:08.961674 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\create.sql
+[0m13:06:08.963069 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\persist_docs.sql
+[0m13:06:08.964465 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\seeds\helpers.sql
+[0m13:06:08.965892 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\literal.sql
+[0m13:06:08.967488 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\snapshots\snapshot_merge.sql
+[0m13:06:08.968773 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\incremental\is_incremental.sql
+[0m13:06:08.970122 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\freshness.sql
+[0m13:06:08.971711 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\adapters.sql
+[0m13:06:08.973274 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\models\incremental\on_schema_change.sql
+[0m13:06:08.974743 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\adapters\indexes.sql
+[0m13:06:08.976020 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\right.sql
+[0m13:06:08.977310 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\materializations\seeds\seed.sql
+[0m13:06:08.978607 [debug] [MainThread]: Partial parsing: deleted file: dbt://docs\overview.md
+[0m13:06:08.980020 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\utils\equals.sql
+[0m13:06:08.981493 [debug] [MainThread]: Partial parsing: deleted file: dbt_postgres://macros\relations\materialized_view\refresh.sql
+[0m13:06:08.982807 [debug] [MainThread]: Partial parsing: deleted file: dbt://macros\relations\schema.sql
+[0m13:06:08.984638 [error] [MainThread]: Encountered an error:
+'dbt_postgres://macros/catalog.sql'
+[0m13:06:08.987469 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 276, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 321, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 391, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 368, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 407, in wrapper
+    setup_manifest(ctx, write=write, write_perf_info=write_perf_info)
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 434, in setup_manifest
+    ctx.obj["manifest"] = parse_manifest(
+                          ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/parser/manifest.py", line 2257, in parse_manifest
+    manifest = ManifestLoader.get_full_manifest(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/parser/manifest.py", line 323, in get_full_manifest
+    manifest = loader.load()
+               ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/parser/manifest.py", line 392, in load
+    self.load_and_parse_macros(project_parser_files)
+  File "/home/airflow/.local/lib/python3.12/site-packages/dbt/parser/manifest.py", line 707, in load_and_parse_macros
+    block = FileBlock(self.manifest.files[file_id])
+                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'dbt_postgres://macros/catalog.sql'
+
+[0m13:06:08.989889 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 1.5225966, "process_in_blocks": "26720", "process_kernel_time": 0.509238, "process_mem_max_rss": "120684", "process_out_blocks": "1936", "process_user_time": 3.374949}
+[0m13:06:08.991378 [debug] [MainThread]: Command `dbt run` failed at 13:06:08.991258 after 1.52 seconds
+[0m13:06:08.992747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3800ea2630>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f37fee1af60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f37ff6568a0>]}
+[0m13:06:08.994566 [debug] [MainThread]: Flushing usage events
+[0m13:06:10.427423 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:15:33.028057 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e310bef0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e217b6b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e339bd10>]}
+
+
+============================== 13:15:33.037481 | 77955a3f-b7e6-4f2b-9897-e962f3a625e9 ==============================
+[0m13:15:33.037481 [info ] [MainThread]: Running with dbt=1.11.8
+[0m13:15:33.039451 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'no_print': 'None', 'warn_error': 'None', 'log_path': '/opt/airflow/dbt/logs', 'use_colors': 'True', 'introspect': 'True', 'partial_parse': 'True', 'indirect_selection': 'eager', 'target_path': 'None', 'debug': 'False', 'profiles_dir': '/opt/airflow/dbt/profiles', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'version_check': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'fail_fast': 'False', 'log_format': 'default', 'invocation_command': 'dbt run', 'quiet': 'False', 'printer_width': '80'}
+[0m13:15:33.409610 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '77955a3f-b7e6-4f2b-9897-e962f3a625e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e0f7e000>]}
+[0m13:15:33.559626 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '77955a3f-b7e6-4f2b-9897-e962f3a625e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e2a1a270>]}
+[0m13:15:33.561910 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m13:15:33.686947 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m13:15:33.810253 [info ] [MainThread]: Unable to do partial parsing because profile has changed
+[0m13:15:33.812397 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '77955a3f-b7e6-4f2b-9897-e962f3a625e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e03f7200>]}
+[0m13:15:35.507861 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '77955a3f-b7e6-4f2b-9897-e962f3a625e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e03482f0>]}
+[0m13:15:35.631794 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m13:15:35.642885 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m13:15:35.695118 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '77955a3f-b7e6-4f2b-9897-e962f3a625e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e0390a70>]}
+[0m13:15:35.697017 [info ] [MainThread]: Found 3 models, 465 macros
+[0m13:15:35.698798 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '77955a3f-b7e6-4f2b-9897-e962f3a625e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e03d0590>]}
+[0m13:15:35.702035 [info ] [MainThread]: 
+[0m13:15:35.703718 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m13:15:35.705693 [info ] [MainThread]: 
+[0m13:15:35.707568 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m13:15:35.714365 [debug] [ThreadPool]: Acquiring new postgres connection 'list_shelf_monitoring'
+[0m13:15:35.781686 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring"
+[0m13:15:35.783437 [debug] [ThreadPool]: On list_shelf_monitoring: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m13:15:35.785099 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:15:35.839383 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.054 seconds
+[0m13:15:35.842239 [debug] [ThreadPool]: On list_shelf_monitoring: Close
+[0m13:15:35.845765 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_shelf_monitoring, now list_shelf_monitoring_public)
+[0m13:15:35.855105 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring_public"
+[0m13:15:35.857306 [debug] [ThreadPool]: On list_shelf_monitoring_public: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring_public"} */
+select
+      'shelf_monitoring' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m13:15:35.858907 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:15:35.929935 [debug] [ThreadPool]: SQL status: SELECT 45 in 0.071 seconds
+[0m13:15:35.934617 [debug] [ThreadPool]: On list_shelf_monitoring_public: ROLLBACK
+[0m13:15:35.937450 [debug] [ThreadPool]: On list_shelf_monitoring_public: Close
+[0m13:15:35.958945 [debug] [MainThread]: Using postgres connection "master"
+[0m13:15:35.961855 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m13:15:35.963934 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:15:36.051881 [debug] [MainThread]: SQL status: SELECT 1 in 0.088 seconds
+[0m13:15:36.054859 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '77955a3f-b7e6-4f2b-9897-e962f3a625e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7de1486b0>]}
+[0m13:15:36.056265 [debug] [MainThread]: On master: ROLLBACK
+[0m13:15:36.058866 [debug] [MainThread]: On master: COMMIT
+[0m13:15:36.060213 [debug] [MainThread]: Using postgres connection "master"
+[0m13:15:36.061527 [debug] [MainThread]: On master: COMMIT
+[0m13:15:36.066100 [debug] [MainThread]: SQL status: COMMIT in 0.003 seconds
+[0m13:15:36.067652 [debug] [MainThread]: On master: Close
+[0m13:15:36.075142 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.fct_stock_levels
+[0m13:15:36.076790 [info ] [Thread-1 (]: 1 of 2 START sql table model public.fct_stock_levels ........................... [RUN]
+[0m13:15:36.078806 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_shelf_monitoring_public, now model.shelf_monitoring.fct_stock_levels)
+[0m13:15:36.080345 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.fct_stock_levels
+[0m13:15:36.090793 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.fct_stock_levels"
+[0m13:15:36.102196 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.fct_stock_levels
+[0m13:15:36.189633 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.fct_stock_levels"
+[0m13:15:36.204386 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m13:15:36.206063 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+
+  
+    
+
+  create  table "shelf_monitoring"."public"."fct_stock_levels__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    predicted_label as stock_level,
+    count(*) as total_images,
+    round(avg(confidence)::numeric, 2) as avg_confidence
+from stg_predictions
+group by predicted_label
+order by total_images desc
+  );
+  
+[0m13:15:36.207975 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:15:36.269317 [debug] [Thread-1 (]: Postgres adapter: Postgres error: permission denied for view stg_predictions
+
+[0m13:15:36.270653 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: ROLLBACK
+[0m13:15:36.273561 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: Close
+[0m13:15:36.289243 [debug] [Thread-1 (]: Database Error in model fct_stock_levels (models/marts/fct_stock_levels.sql)
+  permission denied for view stg_predictions
+  compiled code at target/run/shelf_monitoring/models/marts/fct_stock_levels.sql
+[0m13:15:36.292983 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '77955a3f-b7e6-4f2b-9897-e962f3a625e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7dfbcb8c0>]}
+[0m13:15:36.295503 [error] [Thread-1 (]: 1 of 2 ERROR creating sql table model public.fct_stock_levels .................. [[31mERROR[0m in 0.21s]
+[0m13:15:36.297501 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.fct_stock_levels
+[0m13:15:36.299183 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.stg_predictions
+[0m13:15:36.300456 [debug] [Thread-4 (]: Marking all children of 'model.shelf_monitoring.fct_stock_levels' to be skipped because of status 'error'.  Reason: Database Error in model fct_stock_levels (models/marts/fct_stock_levels.sql)
+  permission denied for view stg_predictions
+  compiled code at target/run/shelf_monitoring/models/marts/fct_stock_levels.sql.
+[0m13:15:36.302166 [info ] [Thread-1 (]: 2 of 2 START sql view model public.stg_predictions ............................. [RUN]
+[0m13:15:36.305344 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.shelf_monitoring.fct_stock_levels, now model.shelf_monitoring.stg_predictions)
+[0m13:15:36.307171 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.stg_predictions
+[0m13:15:36.311808 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.stg_predictions"
+[0m13:15:36.324803 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.stg_predictions
+[0m13:15:36.356095 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.stg_predictions"
+[0m13:15:36.368623 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:15:36.370631 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+
+  create view "shelf_monitoring"."public"."stg_predictions__dbt_tmp"
+    
+    
+  as (
+    select
+    id,
+    image_name,
+    actual_label,
+    predicted_label,
+    confidence,
+    created_at
+from raw_predictions
+  );
+[0m13:15:36.372282 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:15:36.562137 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.190 seconds
+[0m13:15:36.575586 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:15:36.577252 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+alter table "shelf_monitoring"."public"."stg_predictions" rename to "stg_predictions__dbt_backup"
+[0m13:15:36.582654 [debug] [Thread-1 (]: Postgres adapter: Postgres error: must be owner of view stg_predictions
+
+[0m13:15:36.584578 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: ROLLBACK
+[0m13:15:36.587754 [debug] [Thread-1 (]: Postgres adapter: Error running SQL: macro rename_relation
+[0m13:15:36.589461 [debug] [Thread-1 (]: Postgres adapter: Rolling back transaction.
+[0m13:15:36.591272 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: Close
+[0m13:15:36.599997 [debug] [Thread-1 (]: Database Error in model stg_predictions (models/staging/stg_predictions.sql)
+  must be owner of view stg_predictions
+  compiled code at target/run/shelf_monitoring/models/staging/stg_predictions.sql
+[0m13:15:36.601860 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '77955a3f-b7e6-4f2b-9897-e962f3a625e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7dc8654c0>]}
+[0m13:15:36.603609 [error] [Thread-1 (]: 2 of 2 ERROR creating sql view model public.stg_predictions .................... [[31mERROR[0m in 0.30s]
+[0m13:15:36.605715 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.stg_predictions
+[0m13:15:36.607619 [debug] [Thread-4 (]: Marking all children of 'model.shelf_monitoring.stg_predictions' to be skipped because of status 'error'.  Reason: Database Error in model stg_predictions (models/staging/stg_predictions.sql)
+  must be owner of view stg_predictions
+  compiled code at target/run/shelf_monitoring/models/staging/stg_predictions.sql.
+[0m13:15:36.610505 [debug] [MainThread]: On master: COMMIT
+[0m13:15:36.612067 [debug] [MainThread]: Using postgres connection "master"
+[0m13:15:36.613482 [debug] [MainThread]: On master: COMMIT
+[0m13:15:36.614655 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m13:15:36.662442 [debug] [MainThread]: SQL status: COMMIT in 0.048 seconds
+[0m13:15:36.664160 [debug] [MainThread]: On master: Close
+[0m13:15:36.665859 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:15:36.667715 [debug] [MainThread]: Connection 'model.shelf_monitoring.stg_predictions' was properly closed.
+[0m13:15:36.669652 [info ] [MainThread]: 
+[0m13:15:36.671518 [info ] [MainThread]: Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.96 seconds (0.96s).
+[0m13:15:36.673625 [debug] [MainThread]: Command end result
+[0m13:15:36.743403 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m13:15:36.752303 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m13:15:36.767289 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m13:15:36.769028 [info ] [MainThread]: 
+[0m13:15:36.770761 [info ] [MainThread]: [31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+[0m13:15:36.772510 [info ] [MainThread]: 
+[0m13:15:36.774490 [error] [MainThread]: [31mFailure in model fct_stock_levels (models/marts/fct_stock_levels.sql)[0m
+[0m13:15:36.776341 [error] [MainThread]:   Database Error in model fct_stock_levels (models/marts/fct_stock_levels.sql)
+  permission denied for view stg_predictions
+  compiled code at target/run/shelf_monitoring/models/marts/fct_stock_levels.sql
+[0m13:15:36.778100 [info ] [MainThread]: 
+[0m13:15:36.780093 [info ] [MainThread]:   compiled code at target/compiled/shelf_monitoring/models/marts/fct_stock_levels.sql
+[0m13:15:36.781788 [info ] [MainThread]: 
+[0m13:15:36.783490 [error] [MainThread]: [31mFailure in model stg_predictions (models/staging/stg_predictions.sql)[0m
+[0m13:15:36.785202 [error] [MainThread]:   Database Error in model stg_predictions (models/staging/stg_predictions.sql)
+  must be owner of view stg_predictions
+  compiled code at target/run/shelf_monitoring/models/staging/stg_predictions.sql
+[0m13:15:36.787095 [info ] [MainThread]: 
+[0m13:15:36.788685 [info ] [MainThread]:   compiled code at target/compiled/shelf_monitoring/models/staging/stg_predictions.sql
+[0m13:15:36.790028 [info ] [MainThread]: 
+[0m13:15:36.791467 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=2 SKIP=0 NO-OP=0 TOTAL=2
+[0m13:15:36.794197 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 3.8913097, "process_in_blocks": "2960", "process_kernel_time": 0.456042, "process_mem_max_rss": "137000", "process_out_blocks": "1936", "process_user_time": 5.249558}
+[0m13:15:36.796085 [debug] [MainThread]: Command `dbt run` failed at 13:15:36.795878 after 3.89 seconds
+[0m13:15:36.797659 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e0fcce60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e21b3770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7e35c5280>]}
+[0m13:15:36.799362 [debug] [MainThread]: Flushing usage events
+[0m13:15:37.986138 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:17:52.062169 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc81fee900>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc81fed970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc81fee630>]}
+
+
+============================== 13:17:52.071476 | c51144c7-57b3-4433-bb82-fa702131eb3e ==============================
+[0m13:17:52.071476 [info ] [MainThread]: Running with dbt=1.11.8
+[0m13:17:52.073195 [debug] [MainThread]: running dbt with arguments {'log_path': '/opt/airflow/dbt/logs', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt run', 'printer_width': '80', 'warn_error': 'None', 'use_colors': 'True', 'profiles_dir': '/opt/airflow/dbt/profiles', 'use_experimental_parser': 'False', 'version_check': 'True', 'indirect_selection': 'eager', 'static_parser': 'True', 'quiet': 'False', 'target_path': 'None', 'partial_parse': 'True', 'log_cache_events': 'False', 'no_print': 'None', 'fail_fast': 'False', 'introspect': 'True', 'log_format': 'default'}
+[0m13:17:52.362242 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c51144c7-57b3-4433-bb82-fa702131eb3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc811cc8f0>]}
+[0m13:17:52.516869 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c51144c7-57b3-4433-bb82-fa702131eb3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc81519100>]}
+[0m13:17:52.518542 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m13:17:52.639502 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m13:17:52.861941 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m13:17:52.863684 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m13:17:52.865150 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m13:17:52.899667 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c51144c7-57b3-4433-bb82-fa702131eb3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc809f67b0>]}
+[0m13:17:53.021171 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m13:17:53.030507 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m13:17:53.057746 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c51144c7-57b3-4433-bb82-fa702131eb3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc7fd2a990>]}
+[0m13:17:53.059623 [info ] [MainThread]: Found 3 models, 465 macros
+[0m13:17:53.061369 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c51144c7-57b3-4433-bb82-fa702131eb3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc801fabd0>]}
+[0m13:17:53.064645 [info ] [MainThread]: 
+[0m13:17:53.066265 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m13:17:53.068628 [info ] [MainThread]: 
+[0m13:17:53.070553 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m13:17:53.078079 [debug] [ThreadPool]: Acquiring new postgres connection 'list_shelf_monitoring'
+[0m13:17:53.132088 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring"
+[0m13:17:53.133841 [debug] [ThreadPool]: On list_shelf_monitoring: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m13:17:53.135415 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:17:53.186685 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.051 seconds
+[0m13:17:53.189405 [debug] [ThreadPool]: On list_shelf_monitoring: Close
+[0m13:17:53.192478 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_shelf_monitoring, now list_shelf_monitoring_public)
+[0m13:17:53.203993 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring_public"
+[0m13:17:53.205804 [debug] [ThreadPool]: On list_shelf_monitoring_public: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring_public"} */
+select
+      'shelf_monitoring' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m13:17:53.207564 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:17:53.266658 [debug] [ThreadPool]: SQL status: SELECT 43 in 0.059 seconds
+[0m13:17:53.270834 [debug] [ThreadPool]: On list_shelf_monitoring_public: ROLLBACK
+[0m13:17:53.273718 [debug] [ThreadPool]: On list_shelf_monitoring_public: Close
+[0m13:17:53.289994 [debug] [MainThread]: Using postgres connection "master"
+[0m13:17:53.291568 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m13:17:53.293037 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:17:53.348804 [debug] [MainThread]: SQL status: SELECT 0 in 0.056 seconds
+[0m13:17:53.351457 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c51144c7-57b3-4433-bb82-fa702131eb3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc83825880>]}
+[0m13:17:53.353555 [debug] [MainThread]: On master: ROLLBACK
+[0m13:17:53.356619 [debug] [MainThread]: On master: COMMIT
+[0m13:17:53.358436 [debug] [MainThread]: Using postgres connection "master"
+[0m13:17:53.360126 [debug] [MainThread]: On master: COMMIT
+[0m13:17:53.364173 [debug] [MainThread]: SQL status: COMMIT in 0.003 seconds
+[0m13:17:53.367114 [debug] [MainThread]: On master: Close
+[0m13:17:53.374950 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.fct_stock_levels
+[0m13:17:53.377192 [info ] [Thread-1 (]: 1 of 2 START sql table model public.fct_stock_levels ........................... [RUN]
+[0m13:17:53.380583 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_shelf_monitoring_public, now model.shelf_monitoring.fct_stock_levels)
+[0m13:17:53.382625 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.fct_stock_levels
+[0m13:17:53.397724 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.fct_stock_levels"
+[0m13:17:53.414079 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.fct_stock_levels
+[0m13:17:53.516853 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.fct_stock_levels"
+[0m13:17:53.534454 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m13:17:53.537123 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+
+  
+    
+
+  create  table "shelf_monitoring"."public"."fct_stock_levels__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    predicted_label as stock_level,
+    count(*) as total_images,
+    round(avg(confidence)::numeric, 2) as avg_confidence
+from stg_predictions
+group by predicted_label
+order by total_images desc
+  );
+  
+[0m13:17:53.540239 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:17:53.647723 [debug] [Thread-1 (]: Postgres adapter: Postgres error: relation "stg_predictions" does not exist
+LINE 16: from stg_predictions
+              ^
+
+[0m13:17:53.651285 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: ROLLBACK
+[0m13:17:53.656457 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: Close
+[0m13:17:53.669218 [debug] [Thread-1 (]: Database Error in model fct_stock_levels (models/marts/fct_stock_levels.sql)
+  relation "stg_predictions" does not exist
+  LINE 16: from stg_predictions
+                ^
+  compiled code at target/run/shelf_monitoring/models/marts/fct_stock_levels.sql
+[0m13:17:53.675516 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c51144c7-57b3-4433-bb82-fa702131eb3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc826cae70>]}
+[0m13:17:53.679529 [error] [Thread-1 (]: 1 of 2 ERROR creating sql table model public.fct_stock_levels .................. [[31mERROR[0m in 0.29s]
+[0m13:17:53.682653 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.fct_stock_levels
+[0m13:17:53.686517 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.stg_predictions
+[0m13:17:53.688742 [debug] [Thread-4 (]: Marking all children of 'model.shelf_monitoring.fct_stock_levels' to be skipped because of status 'error'.  Reason: Database Error in model fct_stock_levels (models/marts/fct_stock_levels.sql)
+  relation "stg_predictions" does not exist
+  LINE 16: from stg_predictions
+                ^
+  compiled code at target/run/shelf_monitoring/models/marts/fct_stock_levels.sql.
+[0m13:17:53.690791 [info ] [Thread-1 (]: 2 of 2 START sql view model public.stg_predictions ............................. [RUN]
+[0m13:17:53.695281 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.shelf_monitoring.fct_stock_levels, now model.shelf_monitoring.stg_predictions)
+[0m13:17:53.696810 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.stg_predictions
+[0m13:17:53.702675 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.stg_predictions"
+[0m13:17:53.714089 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.stg_predictions
+[0m13:17:53.749007 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.stg_predictions"
+[0m13:17:53.759799 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:17:53.762900 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+
+  create view "shelf_monitoring"."public"."stg_predictions__dbt_tmp"
+    
+    
+  as (
+    select
+    id,
+    image_name,
+    actual_label,
+    predicted_label,
+    confidence,
+    created_at
+from raw_predictions
+  );
+[0m13:17:53.764784 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:17:53.818522 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.054 seconds
+[0m13:17:53.827272 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:17:53.828556 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+alter table "shelf_monitoring"."public"."stg_predictions__dbt_tmp" rename to "stg_predictions"
+[0m13:17:53.832584 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.003 seconds
+[0m13:17:53.856264 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m13:17:53.858035 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:17:53.859290 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m13:17:53.865039 [debug] [Thread-1 (]: SQL status: COMMIT in 0.004 seconds
+[0m13:17:53.874689 [debug] [Thread-1 (]: Applying DROP to: "shelf_monitoring"."public"."stg_predictions__dbt_backup"
+[0m13:17:53.882861 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:17:53.885059 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+drop view if exists "shelf_monitoring"."public"."stg_predictions__dbt_backup" cascade
+[0m13:17:53.889084 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.002 seconds
+[0m13:17:53.894136 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: Close
+[0m13:17:53.896137 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c51144c7-57b3-4433-bb82-fa702131eb3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc83c99cd0>]}
+[0m13:17:53.898317 [info ] [Thread-1 (]: 2 of 2 OK created sql view model public.stg_predictions ........................ [[32mCREATE VIEW[0m in 0.20s]
+[0m13:17:53.900879 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.stg_predictions
+[0m13:17:53.903956 [debug] [MainThread]: On master: COMMIT
+[0m13:17:53.905667 [debug] [MainThread]: Using postgres connection "master"
+[0m13:17:53.907443 [debug] [MainThread]: On master: COMMIT
+[0m13:17:53.908895 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m13:17:53.959696 [debug] [MainThread]: SQL status: COMMIT in 0.051 seconds
+[0m13:17:53.961499 [debug] [MainThread]: On master: Close
+[0m13:17:53.963244 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:17:53.964628 [debug] [MainThread]: Connection 'model.shelf_monitoring.stg_predictions' was properly closed.
+[0m13:17:53.966168 [info ] [MainThread]: 
+[0m13:17:53.968072 [info ] [MainThread]: Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.90 seconds (0.90s).
+[0m13:17:53.970462 [debug] [MainThread]: Command end result
+[0m13:17:54.045618 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m13:17:54.054436 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m13:17:54.069198 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m13:17:54.070805 [info ] [MainThread]: 
+[0m13:17:54.072577 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m13:17:54.074371 [info ] [MainThread]: 
+[0m13:17:54.076136 [error] [MainThread]: [31mFailure in model fct_stock_levels (models/marts/fct_stock_levels.sql)[0m
+[0m13:17:54.077894 [error] [MainThread]:   Database Error in model fct_stock_levels (models/marts/fct_stock_levels.sql)
+  relation "stg_predictions" does not exist
+  LINE 16: from stg_predictions
+                ^
+  compiled code at target/run/shelf_monitoring/models/marts/fct_stock_levels.sql
+[0m13:17:54.080745 [info ] [MainThread]: 
+[0m13:17:54.082415 [info ] [MainThread]:   compiled code at target/compiled/shelf_monitoring/models/marts/fct_stock_levels.sql
+[0m13:17:54.084112 [info ] [MainThread]: 
+[0m13:17:54.086110 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=2
+[0m13:17:54.088751 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 2.1298423, "process_in_blocks": "0", "process_kernel_time": 0.342157, "process_mem_max_rss": "131508", "process_out_blocks": "0", "process_user_time": 3.602714}
+[0m13:17:54.090468 [debug] [MainThread]: Command `dbt run` failed at 13:17:54.090341 after 2.13 seconds
+[0m13:17:54.091991 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc8201ff20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc809567b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7efc801f9730>]}
+[0m13:17:54.093909 [debug] [MainThread]: Flushing usage events
+[0m13:17:55.310278 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:20:35.642654 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7c95cf50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7e983350>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7c9b6300>]}
+
+
+============================== 13:20:35.651788 | a851e890-40a2-4079-9615-7bfa78b26103 ==============================
+[0m13:20:35.651788 [info ] [MainThread]: Running with dbt=1.11.8
+[0m13:20:35.653514 [debug] [MainThread]: running dbt with arguments {'empty': 'False', 'partial_parse': 'True', 'use_experimental_parser': 'False', 'profiles_dir': '/opt/airflow/dbt/profiles', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'log_cache_events': 'False', 'introspect': 'True', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/opt/airflow/dbt/logs', 'quiet': 'False', 'target_path': 'None', 'write_json': 'True', 'invocation_command': 'dbt run', 'use_colors': 'True', 'printer_width': '80', 'indirect_selection': 'eager', 'static_parser': 'True', 'log_format': 'default'}
+[0m13:20:35.933269 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a851e890-40a2-4079-9615-7bfa78b26103', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7c8f8c20>]}
+[0m13:20:36.016191 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a851e890-40a2-4079-9615-7bfa78b26103', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7cb195b0>]}
+[0m13:20:36.018471 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m13:20:36.151366 [debug] [MainThread]: checksum: 7d524ac048c2100769df89d592e662e060a73ca564e31bd9c2a37efdfe8d8ab6, vars: {}, profile: , target: , version: 1.11.8
+[0m13:20:36.456746 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m13:20:36.458337 [debug] [MainThread]: Partial parsing: updated file: shelf_monitoring://models/marts/fct_stock_levels.sql
+[0m13:20:36.809086 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a851e890-40a2-4079-9615-7bfa78b26103', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7a5f8aa0>]}
+[0m13:20:37.035359 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m13:20:37.045000 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m13:20:37.071950 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a851e890-40a2-4079-9615-7bfa78b26103', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7a1f5d30>]}
+[0m13:20:37.074286 [info ] [MainThread]: Found 3 models, 465 macros
+[0m13:20:37.075985 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a851e890-40a2-4079-9615-7bfa78b26103', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7a1ba420>]}
+[0m13:20:37.080082 [info ] [MainThread]: 
+[0m13:20:37.081971 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m13:20:37.084022 [info ] [MainThread]: 
+[0m13:20:37.087502 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m13:20:37.096616 [debug] [ThreadPool]: Acquiring new postgres connection 'list_shelf_monitoring'
+[0m13:20:37.147264 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring"
+[0m13:20:37.148713 [debug] [ThreadPool]: On list_shelf_monitoring: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m13:20:37.150466 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:20:37.201054 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.051 seconds
+[0m13:20:37.203801 [debug] [ThreadPool]: On list_shelf_monitoring: Close
+[0m13:20:37.207615 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_shelf_monitoring, now list_shelf_monitoring_public)
+[0m13:20:37.218357 [debug] [ThreadPool]: Using postgres connection "list_shelf_monitoring_public"
+[0m13:20:37.220147 [debug] [ThreadPool]: On list_shelf_monitoring_public: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "list_shelf_monitoring_public"} */
+select
+      'shelf_monitoring' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'shelf_monitoring' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m13:20:37.221686 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m13:20:37.280840 [debug] [ThreadPool]: SQL status: SELECT 44 in 0.059 seconds
+[0m13:20:37.285062 [debug] [ThreadPool]: On list_shelf_monitoring_public: ROLLBACK
+[0m13:20:37.288205 [debug] [ThreadPool]: On list_shelf_monitoring_public: Close
+[0m13:20:37.306678 [debug] [MainThread]: Using postgres connection "master"
+[0m13:20:37.308628 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m13:20:37.310553 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:20:37.366457 [debug] [MainThread]: SQL status: SELECT 1 in 0.056 seconds
+[0m13:20:37.369372 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a851e890-40a2-4079-9615-7bfa78b26103', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7843f6b0>]}
+[0m13:20:37.371088 [debug] [MainThread]: On master: ROLLBACK
+[0m13:20:37.374011 [debug] [MainThread]: On master: COMMIT
+[0m13:20:37.375536 [debug] [MainThread]: Using postgres connection "master"
+[0m13:20:37.377036 [debug] [MainThread]: On master: COMMIT
+[0m13:20:37.380794 [debug] [MainThread]: SQL status: COMMIT in 0.002 seconds
+[0m13:20:37.382403 [debug] [MainThread]: On master: Close
+[0m13:20:37.388794 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.stg_predictions
+[0m13:20:37.390580 [info ] [Thread-1 (]: 1 of 2 START sql view model public.stg_predictions ............................. [RUN]
+[0m13:20:37.392437 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_shelf_monitoring_public, now model.shelf_monitoring.stg_predictions)
+[0m13:20:37.394425 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.stg_predictions
+[0m13:20:37.406351 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.stg_predictions"
+[0m13:20:37.421759 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.stg_predictions
+[0m13:20:37.485425 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.stg_predictions"
+[0m13:20:37.502368 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:20:37.504523 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+
+  create view "shelf_monitoring"."public"."stg_predictions__dbt_tmp"
+    
+    
+  as (
+    select
+    id,
+    image_name,
+    actual_label,
+    predicted_label,
+    confidence,
+    created_at
+from raw_predictions
+  );
+[0m13:20:37.506674 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:20:37.579280 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.073 seconds
+[0m13:20:37.589361 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:20:37.591385 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+alter table "shelf_monitoring"."public"."stg_predictions" rename to "stg_predictions__dbt_backup"
+[0m13:20:37.595236 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m13:20:37.600076 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:20:37.601895 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+alter table "shelf_monitoring"."public"."stg_predictions__dbt_tmp" rename to "stg_predictions"
+[0m13:20:37.605269 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m13:20:37.632029 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m13:20:37.633843 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:20:37.635678 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: COMMIT
+[0m13:20:37.766865 [debug] [Thread-1 (]: SQL status: COMMIT in 0.129 seconds
+[0m13:20:37.777411 [debug] [Thread-1 (]: Applying DROP to: "shelf_monitoring"."public"."stg_predictions__dbt_backup"
+[0m13:20:37.785459 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.stg_predictions"
+[0m13:20:37.787363 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.stg_predictions"} */
+drop view if exists "shelf_monitoring"."public"."stg_predictions__dbt_backup" cascade
+[0m13:20:37.792009 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m13:20:37.796392 [debug] [Thread-1 (]: On model.shelf_monitoring.stg_predictions: Close
+[0m13:20:37.800175 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a851e890-40a2-4079-9615-7bfa78b26103', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7e661dc0>]}
+[0m13:20:37.802868 [info ] [Thread-1 (]: 1 of 2 OK created sql view model public.stg_predictions ........................ [[32mCREATE VIEW[0m in 0.41s]
+[0m13:20:37.805236 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.stg_predictions
+[0m13:20:37.808090 [debug] [Thread-1 (]: Began running node model.shelf_monitoring.fct_stock_levels
+[0m13:20:37.809861 [info ] [Thread-1 (]: 2 of 2 START sql table model public.fct_stock_levels ........................... [RUN]
+[0m13:20:37.811737 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.shelf_monitoring.stg_predictions, now model.shelf_monitoring.fct_stock_levels)
+[0m13:20:37.813386 [debug] [Thread-1 (]: Began compiling node model.shelf_monitoring.fct_stock_levels
+[0m13:20:37.818138 [debug] [Thread-1 (]: Writing injected SQL for node "model.shelf_monitoring.fct_stock_levels"
+[0m13:20:37.831866 [debug] [Thread-1 (]: Began executing node model.shelf_monitoring.fct_stock_levels
+[0m13:20:37.865303 [debug] [Thread-1 (]: Writing runtime sql for node "model.shelf_monitoring.fct_stock_levels"
+[0m13:20:37.880346 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m13:20:37.882247 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+
+  
+    
+
+  create  table "shelf_monitoring"."public"."fct_stock_levels__dbt_tmp"
+  
+  
+    as
+  
+  (
+    select
+    predicted_label as stock_level,
+    count(*) as total_images,
+    round(avg(confidence)::numeric, 2) as avg_confidence
+from "shelf_monitoring"."public"."stg_predictions"
+group by predicted_label
+order by total_images desc
+  );
+  
+[0m13:20:37.884032 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m13:20:38.087612 [debug] [Thread-1 (]: SQL status: SELECT 4 in 0.203 seconds
+[0m13:20:38.097218 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m13:20:38.098972 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+alter table "shelf_monitoring"."public"."fct_stock_levels__dbt_tmp" rename to "fct_stock_levels"
+[0m13:20:38.103041 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m13:20:38.106016 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: COMMIT
+[0m13:20:38.107685 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m13:20:38.109380 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: COMMIT
+[0m13:20:38.203727 [debug] [Thread-1 (]: SQL status: COMMIT in 0.093 seconds
+[0m13:20:38.208790 [debug] [Thread-1 (]: Applying DROP to: "shelf_monitoring"."public"."fct_stock_levels__dbt_backup"
+[0m13:20:38.214320 [debug] [Thread-1 (]: Using postgres connection "model.shelf_monitoring.fct_stock_levels"
+[0m13:20:38.216289 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: /* {"app": "dbt", "dbt_version": "1.11.8", "profile_name": "shelf_monitoring", "target_name": "dev", "node_id": "model.shelf_monitoring.fct_stock_levels"} */
+drop table if exists "shelf_monitoring"."public"."fct_stock_levels__dbt_backup" cascade
+[0m13:20:38.221454 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.003 seconds
+[0m13:20:38.224543 [debug] [Thread-1 (]: On model.shelf_monitoring.fct_stock_levels: Close
+[0m13:20:38.226701 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a851e890-40a2-4079-9615-7bfa78b26103', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7a1b8b60>]}
+[0m13:20:38.228995 [info ] [Thread-1 (]: 2 of 2 OK created sql table model public.fct_stock_levels ...................... [[32mSELECT 4[0m in 0.41s]
+[0m13:20:38.231215 [debug] [Thread-1 (]: Finished running node model.shelf_monitoring.fct_stock_levels
+[0m13:20:38.234273 [debug] [MainThread]: On master: COMMIT
+[0m13:20:38.235928 [debug] [MainThread]: Using postgres connection "master"
+[0m13:20:38.237453 [debug] [MainThread]: On master: COMMIT
+[0m13:20:38.239109 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m13:20:38.287444 [debug] [MainThread]: SQL status: COMMIT in 0.048 seconds
+[0m13:20:38.289341 [debug] [MainThread]: On master: Close
+[0m13:20:38.290972 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:20:38.292246 [debug] [MainThread]: Connection 'model.shelf_monitoring.fct_stock_levels' was properly closed.
+[0m13:20:38.293767 [info ] [MainThread]: 
+[0m13:20:38.295699 [info ] [MainThread]: Finished running 1 table model, 1 view model in 0 hours 0 minutes and 1.21 seconds (1.21s).
+[0m13:20:38.297963 [debug] [MainThread]: Command end result
+[0m13:20:38.424168 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m13:20:38.433424 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m13:20:38.447981 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m13:20:38.449671 [info ] [MainThread]: 
+[0m13:20:38.451267 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m13:20:38.452907 [info ] [MainThread]: 
+[0m13:20:38.454618 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[0m13:20:38.456878 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 2.912577, "process_in_blocks": "0", "process_kernel_time": 0.272629, "process_mem_max_rss": "135504", "process_out_blocks": "0", "process_user_time": 4.01876}
+[0m13:20:38.458738 [debug] [MainThread]: Command `dbt run` succeeded at 13:20:38.458577 after 2.91 seconds
+[0m13:20:38.460309 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7835b3e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7835b140>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fcb7835b2c0>]}
+[0m13:20:38.462938 [debug] [MainThread]: Flushing usage events
+[0m13:20:39.688037 [debug] [MainThread]: An error was encountered while trying to flush usage events

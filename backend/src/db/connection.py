@@ -1,13 +1,16 @@
+import os
+
 import psycopg2
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 def get_connection():
-    conn = psycopg2.connect(
-        host = "localhost",
-        database = "shelf_monitoring",
-        user = "postgres",
-        password = "root1704",
-        port = "5432"
+    return psycopg2.connect(
+        host=os.getenv("POSTGRES_HOST", "127.0.0.1"),
+        database=os.getenv("POSTGRES_DB", "shelf_monitoring"),
+        user=os.getenv("POSTGRES_USER", "shelf_user"),
+        password=os.getenv("POSTGRES_PASSWORD"),
+        port=os.getenv("POSTGRES_PORT", "5432"),
     )
-
-    return conn
-

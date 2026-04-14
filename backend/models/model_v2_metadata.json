@@ -1,0 +1,14 @@
+{
+  "class_names": [
+    "empty",
+    "full",
+    "low",
+    "medium"
+  ],
+  "image_size": [
+    224,
+    224
+  ],
+  "preprocess_mode": "mobilenet_v2",
+  "architecture": "MobileNetV2"
+}

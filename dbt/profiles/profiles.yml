@@ -1,0 +1,12 @@
+shelf_monitoring:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: host.docker.internal
+      user: shelf_user
+      password: shelf_pass123
+      port: 5432
+      dbname: shelf_monitoring
+      schema: public
+      threads: 1

@@ -1,0 +1,5 @@
+actual/predicted,empty,full,low,medium
+empty,2,0,2,0
+full,0,9,0,0
+low,1,0,2,1
+medium,0,2,1,2

@@ -1,9 +1,12 @@
 import pandas as pd
-from connection import get_connection
+
+try:
+    from .connection import get_connection
+except ImportError:
+    from connection import get_connection
 
 def insert_predictions():
-    df = pd.read_csv("data/predictions/predictions.csv")
-
+    df = pd.read_csv("/opt/airflow/data/predictions/predictions.csv")
     conn = get_connection()
     cursor = conn.cursor()
 
