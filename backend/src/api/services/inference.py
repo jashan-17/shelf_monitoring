@@ -15,6 +15,7 @@ DATASET_ROOT = Path(__file__).resolve().parents[4] / "data" / "raw_images"
 _MODEL = None
 _MODEL_METADATA = None
 _HEURISTIC_STATS = None
+_MODEL_LOAD_ATTEMPTED = False
 
 
 def get_model_metadata(model_path):
@@ -36,11 +37,19 @@ def get_model_metadata(model_path):
 
 
 def get_model():
-    global _MODEL
+    global _MODEL, _MODEL_LOAD_ATTEMPTED
+    if _MODEL_LOAD_ATTEMPTED:
+        return _MODEL
+
+    _MODEL_LOAD_ATTEMPTED = True
     if _MODEL is None:
         model_path = settings.model_path
         if not model_path.exists() and settings.fallback_model_path.exists():
             model_path = settings.fallback_model_path
+
+        if not model_path.exists():
+            return None
+
         _MODEL = load_model(model_path)
         get_model_metadata(model_path)
     return _MODEL
@@ -177,6 +186,9 @@ def _predict_with_model(image_rgb):
     image_array = np.expand_dims(image_array, axis=0)
 
     model = get_model()
+    if model is None:
+        return {label: 1.0 / len(DEFAULT_CLASS_NAMES) for label in DEFAULT_CLASS_NAMES}
+
     metadata = _MODEL_METADATA or {
         "class_names": DEFAULT_CLASS_NAMES,
         "preprocess_mode": "rescale_01",

@@ -1,0 +1,11 @@
+.git
+.github
+venv
+__pycache__
+**/__pycache__
+**/.DS_Store
+frontend/node_modules
+frontend/dist
+data/collected_candidates
+data/bad_images
+airflow/logs

@@ -52,6 +52,76 @@ npm install
 npm run dev
 ```
 
+## Docker Deployment
+
+### App Stack
+- Uses `docker-compose.app.yml`
+- Runs:
+  - FastAPI API on `http://127.0.0.1:8010`
+  - Frontend on `http://127.0.0.1:4173`
+- Frontend proxies `/api` requests to the backend container through Nginx
+
+```bash
+docker compose -f docker-compose.app.yml up --build
+```
+
+### Stop App Stack
+
+```bash
+docker compose -f docker-compose.app.yml down
+```
+
+## Vercel + Render Deployment
+
+### Backend on Render
+- Render official FastAPI guide: https://render.com/docs/deploy-fastapi
+- Render Python version docs: https://render.com/docs/python-version
+- This repo now includes `render.yaml` for the backend service
+
+Use these settings if you create the service manually:
+- Runtime: `Python 3`
+- Build command: `pip install -r backend/requirements-deploy.txt`
+- Start command: `uvicorn src.api.main:app --app-dir backend --host 0.0.0.0 --port $PORT`
+
+Set these Render environment variables:
+- `POSTGRES_HOST`
+- `POSTGRES_PORT`
+- `POSTGRES_DB`
+- `POSTGRES_USER`
+- `POSTGRES_PASSWORD`
+- `CORS_ORIGINS`
+- `MODEL_PATH=backend/models/model_v2.keras`
+- `FALLBACK_MODEL_PATH=backend/models/model.h5`
+
+Notes:
+- Render supports setting Python with `PYTHON_VERSION` or `.python-version`
+- If the large model file is not present in deployment, the API now falls back gracefully instead of crashing
+
+### Frontend on Vercel
+- Vercel Vite SPA docs: https://vercel.com/docs/frameworks/frontend/vite
+- Vercel rewrites docs: https://vercel.com/docs/rewrites
+- Deploy the `frontend` directory as the Vercel project root
+- The repo now includes `frontend/vercel.json`
+
+Frontend deployment setup:
+- Framework preset: `Vite`
+- Root directory: `frontend`
+- Build command: `npm run build`
+- Output directory: `dist`
+
+Important:
+- `frontend/vercel.json` currently rewrites `/api/*` to `https://shelf-monitoring-api.onrender.com/api/*`
+- If Render gives you a different service URL, update `frontend/vercel.json` to match it before production deploy
+- The same `vercel.json` also enables React Router deep links by rewriting routes to `index.html`
+
+### Recommended Order
+1. Deploy the backend on Render first
+2. Confirm the Render API works at `/docs`
+3. Check the assigned Render service URL
+4. Update `frontend/vercel.json` if the URL differs
+5. Deploy the frontend on Vercel from the `frontend` directory
+6. Open the Vercel site and test image upload and prediction
+
 ### Airflow (Optional)
 - Start services with Docker Compose
 

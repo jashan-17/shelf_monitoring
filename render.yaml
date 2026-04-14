@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: shelf-monitoring-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r backend/requirements-deploy.txt
+    startCommand: uvicorn src.api.main:app --app-dir backend --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.9
+      - key: POSTGRES_HOST
+        sync: false
+      - key: POSTGRES_PORT
+        sync: false
+      - key: POSTGRES_DB
+        sync: false
+      - key: POSTGRES_USER
+        sync: false
+      - key: POSTGRES_PASSWORD
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: MODEL_PATH
+        value: backend/models/model_v2.keras
+      - key: FALLBACK_MODEL_PATH
+        value: backend/models/model.h5
+      - key: DEFAULT_PREDICTION_LIMIT
+        value: "10"
+      - key: DEFAULT_TREND_DAYS
+        value: "7"
