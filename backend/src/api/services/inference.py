@@ -3,8 +3,7 @@ from io import BytesIO
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
-import cv2
+from PIL import Image, ImageFilter
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.models import load_model
 
@@ -56,20 +55,20 @@ def get_model():
 
 
 def _extract_visual_features(image_rgb):
-    image_bgr = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2BGR)
-    image_bgr = cv2.resize(image_bgr, (224, 224))
+    resized_image = Image.fromarray(image_rgb).resize((224, 224))
+    hsv_image = np.asarray(resized_image.convert("HSV"), dtype=np.float32)
+    grayscale = resized_image.convert("L")
+    edge_image = grayscale.filter(ImageFilter.FIND_EDGES)
 
-    hsv_image = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2HSV)
     saturation = hsv_image[:, :, 1]
     brightness = hsv_image[:, :, 2]
-    grayscale = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2GRAY)
-    edges = cv2.Canny(grayscale, 80, 160)
+    edge_pixels = np.asarray(edge_image, dtype=np.float32)
 
     return np.array(
         [
             float((saturation > 45).mean()),
             float((brightness > 80).mean()),
-            float((edges > 0).mean()),
+            float((edge_pixels > 24).mean()),
             float(((saturation < 35) & (brightness < 90)).mean()),
         ],
         dtype=np.float32,
@@ -108,11 +107,10 @@ def _load_training_heuristics():
             if image_path.suffix.lower() not in valid_suffixes:
                 continue
 
-            image = cv2.imread(str(image_path))
-            if image is None:
+            try:
+                image_rgb = np.asarray(Image.open(image_path).convert("RGB"), dtype=np.uint8)
+            except (OSError, ValueError):
                 continue
-
-            image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
             features.append(_extract_visual_features(image_rgb))
 
         if features:
