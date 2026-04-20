@@ -71,8 +71,6 @@ class Settings:
     _raw_fallback_model_path = _get_env("FALLBACK_MODEL_PATH", _raw_model_path)
     model_path = _resolve_path(_raw_model_path, DEFAULT_MODEL_PATH)
     fallback_model_path = _resolve_path(_raw_fallback_model_path, model_path)
-    default_prediction_limit = _get_int_env("DEFAULT_PREDICTION_LIMIT", 10)
-    default_trend_days = _get_int_env("DEFAULT_TREND_DAYS", 7)
 
 
 settings = Settings()

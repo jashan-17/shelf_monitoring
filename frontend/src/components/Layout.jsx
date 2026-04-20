@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 const navigation = [
   { to: "/predict", label: "Live Predict" },
   { to: "/about", label: "About" },
-  { to: "/dashboard", label: "Dashboard" },
-  { to: "/analytics", label: "Analytics" },
 ];
 
 function Layout({ children }) {
@@ -33,11 +31,6 @@ function Layout({ children }) {
             </NavLink>
           ))}
         </nav>
-
-        <div className="sidebar-footer">
-          <span className="sidebar-footer-label">System Mode</span>
-          <strong>Local Development</strong>
-        </div>
       </aside>
 
       <main className="content-area">{children}</main>

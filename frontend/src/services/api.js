@@ -18,26 +18,6 @@ async function request(path, options = {}) {
   return response.json();
 }
 
-export function getSummary() {
-  return request("/summary");
-}
-
-export function getPredictions(limit = 10) {
-  return request(`/predictions?limit=${limit}`);
-}
-
-export function getStockLevels() {
-  return request("/analytics/stock-levels");
-}
-
-export function getTrends(days = 7) {
-  return request(`/analytics/trends?days=${days}`);
-}
-
-export function getSystemStatus() {
-  return request("/status");
-}
-
 export function uploadPrediction(file) {
   const formData = new FormData();
   formData.append("file", file);
