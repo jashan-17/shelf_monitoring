@@ -2,6 +2,7 @@ from fastapi import APIRouter
 
 from src.api.schemas.responses import SystemStatusResponse
 from src.api.services.repository import check_database_status
+from src.db.connection import DatabaseConnectionError
 
 router = APIRouter(tags=["status"])
 
@@ -9,8 +10,12 @@ router = APIRouter(tags=["status"])
 @router.get("/status", response_model=SystemStatusResponse, response_model_by_alias=False)
 def get_system_status():
     database_ok = False
+    database_detail = "Connection check failed."
     try:
         database_ok = check_database_status()
+        database_detail = "Connected to PostgreSQL."
+    except DatabaseConnectionError as exc:
+        database_detail = str(exc)
     except Exception:
         database_ok = False
 
@@ -18,7 +23,7 @@ def get_system_status():
         "database": {
             "label": "Database",
             "status": "online" if database_ok else "offline",
-            "detail": "Connected to PostgreSQL." if database_ok else "Connection check failed.",
+            "detail": database_detail,
         },
         "airflow": {
             "label": "Airflow",

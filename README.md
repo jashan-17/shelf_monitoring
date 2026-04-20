@@ -84,11 +84,9 @@ Use these settings if you create the service manually:
 - Start command: `uvicorn src.api.main:app --app-dir backend --host 0.0.0.0 --port $PORT`
 
 Set these Render environment variables:
-- `POSTGRES_HOST`
-- `POSTGRES_PORT`
-- `POSTGRES_DB`
-- `POSTGRES_USER`
-- `POSTGRES_PASSWORD`
+- `DATABASE_URL`
+- `DATABASE_SSLMODE=require`
+- `DATABASE_CONNECT_TIMEOUT=10`
 - `CORS_ORIGINS`
 - `MODEL_PATH=backend/models/model_v2.keras`
 - `FALLBACK_MODEL_PATH=backend/models/model.h5`
@@ -96,6 +94,8 @@ Set these Render environment variables:
 Notes:
 - Render supports setting Python with `PYTHON_VERSION` or `.python-version`
 - If the large model file is not present in deployment, the API now falls back gracefully instead of crashing
+- For Render Postgres, use the Internal Database URL when the API and database are in the same Render region
+- For any external cloud PostgreSQL provider, paste the provider's connection string into `DATABASE_URL`
 
 ### Frontend on Vercel
 - Vercel Vite SPA docs: https://vercel.com/docs/frameworks/frontend/vite

@@ -8,16 +8,12 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.9
-      - key: POSTGRES_HOST
+      - key: DATABASE_URL
         sync: false
-      - key: POSTGRES_PORT
-        sync: false
-      - key: POSTGRES_DB
-        sync: false
-      - key: POSTGRES_USER
-        sync: false
-      - key: POSTGRES_PASSWORD
-        sync: false
+      - key: DATABASE_SSLMODE
+        value: require
+      - key: DATABASE_CONNECT_TIMEOUT
+        value: "10"
       - key: CORS_ORIGINS
         sync: false
       - key: MODEL_PATH
