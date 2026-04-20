@@ -8,3 +8,4 @@ frontend/.env
 backend_*.log
 backend/models/*.h5
 backend/models/*.keras
+backend/models/*_savedmodel/

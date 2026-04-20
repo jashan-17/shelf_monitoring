@@ -131,7 +131,11 @@ class TFLiteModelService:
             except Exception:
                 pass
 
-        image_array /= 255.0
+        preprocess_mode = self._metadata.get("preprocess_mode", "rescale_01")
+        if preprocess_mode == "mobilenet_v2":
+            image_array = (image_array / 127.5) - 1.0
+        else:
+            image_array /= 255.0
         return np.expand_dims(image_array, axis=0)
 
     def predict(self, image_file: BinaryIO) -> dict[str, float | dict[str, float]]:
