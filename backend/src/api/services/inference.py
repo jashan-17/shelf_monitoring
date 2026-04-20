@@ -138,6 +138,17 @@ class TFLiteModelService:
             image_array /= 255.0
         return np.expand_dims(image_array, axis=0)
 
+    def _order_probabilities(self, probabilities: dict[str, float]) -> dict[str, float]:
+        ordered = {
+            label: probabilities[label]
+            for label in DEFAULT_CLASS_NAMES
+            if label in probabilities
+        }
+        for label, score in probabilities.items():
+            if label not in ordered:
+                ordered[label] = score
+        return ordered
+
     def predict(self, image_file: BinaryIO) -> dict[str, float | dict[str, float]]:
         self._ensure_model_loaded(raise_on_failure=True)
 
@@ -165,6 +176,7 @@ class TFLiteModelService:
             label: float(score)
             for label, score in zip(class_names, predictions)
         }
+        ordered_probabilities = self._order_probabilities(probabilities)
 
         predicted_label = max(probabilities, key=probabilities.get)
         confidence = probabilities[predicted_label]
@@ -172,7 +184,10 @@ class TFLiteModelService:
         return {
             "predicted_label": predicted_label,
             "confidence": round(float(confidence), 4),
-            "probabilities": {label: round(float(score), 4) for label, score in probabilities.items()},
+            "probabilities": {
+                label: round(float(score), 4)
+                for label, score in ordered_probabilities.items()
+            },
         }
 
 

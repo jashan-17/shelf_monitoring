@@ -3,6 +3,8 @@ import ErrorBlock from "../components/ErrorBlock";
 import PageHeader from "../components/PageHeader";
 import { savePredictionResult, uploadPrediction } from "../services/api";
 
+const DISPLAY_LABEL_ORDER = ["empty", "low", "medium", "full"];
+
 function PredictPage() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [result, setResult] = useState(null);
@@ -24,6 +26,21 @@ function PredictPage() {
     }
     return URL.createObjectURL(selectedFile);
   }, [selectedFile]);
+
+  const orderedProbabilities = useMemo(() => {
+    if (!result?.probabilities) {
+      return [];
+    }
+
+    const entries = Object.entries(result.probabilities);
+    return entries.sort(([leftLabel], [rightLabel]) => {
+      const leftIndex = DISPLAY_LABEL_ORDER.indexOf(leftLabel);
+      const rightIndex = DISPLAY_LABEL_ORDER.indexOf(rightLabel);
+      const normalizedLeftIndex = leftIndex === -1 ? Number.MAX_SAFE_INTEGER : leftIndex;
+      const normalizedRightIndex = rightIndex === -1 ? Number.MAX_SAFE_INTEGER : rightIndex;
+      return normalizedLeftIndex - normalizedRightIndex;
+    });
+  }, [result]);
 
   useEffect(() => {
     return () => {
@@ -363,7 +380,7 @@ function PredictPage() {
               </div>
 
               <div className="probability-list">
-                {Object.entries(result.probabilities).map(([label, value]) => (
+                {orderedProbabilities.map(([label, value]) => (
                   <div className="probability-row" key={label}>
                     <span>{label}</span>
                     <div className="probability-bar">
