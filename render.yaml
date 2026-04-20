@@ -19,7 +19,7 @@ services:
       - key: MODEL_PATH
         value: backend/models/model_v2.tflite
       - key: FALLBACK_MODEL_PATH
-        value: backend/models/model.tflite
+        value: backend/models/model_v2.tflite
       - key: DEFAULT_PREDICTION_LIMIT
         value: "10"
       - key: DEFAULT_TREND_DAYS

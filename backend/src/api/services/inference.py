@@ -48,6 +48,15 @@ class TFLiteModelService:
             candidates.append(settings.fallback_model_path)
         return candidates
 
+    def _missing_model_message(self) -> str:
+        attempted_paths = [str(path) for path in self._candidate_model_paths()]
+        return (
+            "TFLite model file not found. "
+            f"Expected one of: {', '.join(attempted_paths)}. "
+            "Generate the model with backend/src/pipeline/convert_model.py "
+            "and commit the resulting .tflite file to the repository."
+        )
+
     def _load_metadata(self, model_path: Path) -> dict:
         metadata_path = model_path.with_name(f"{model_path.stem}_metadata.json")
         if metadata_path.exists():
@@ -80,7 +89,7 @@ class TFLiteModelService:
 
             for model_path in self._candidate_model_paths():
                 if not model_path.exists():
-                    errors.append(f"{model_path.name}: file not found")
+                    errors.append(f"{model_path}: file not found")
                     continue
 
                 try:
@@ -96,9 +105,12 @@ class TFLiteModelService:
                     return True
                 except Exception as exc:
                     logger.exception("Failed to load TFLite model from %s", model_path)
-                    errors.append(f"{model_path.name}: {exc}")
+                    errors.append(f"{model_path}: {exc}")
 
-            self._load_error = " ; ".join(errors) if errors else "No TFLite model files were available."
+            self._load_error = " ; ".join(errors) if errors else self._missing_model_message()
+
+            if all(not model_path.exists() for model_path in self._candidate_model_paths()):
+                self._load_error = self._missing_model_message()
 
         if raise_on_failure:
             raise ModelUnavailableError(self._load_error)

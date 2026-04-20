@@ -9,7 +9,7 @@ load_dotenv()
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 BACKEND_ROOT = PROJECT_ROOT / "backend"
 DEFAULT_MODEL_PATH = BACKEND_ROOT / "models" / "model_v2.tflite"
-FALLBACK_MODEL_PATH = BACKEND_ROOT / "models" / "model.tflite"
+FALLBACK_MODEL_PATH = DEFAULT_MODEL_PATH
 
 
 def _get_env(name: str, default: str | None = None, *, required: bool = False) -> str:
@@ -56,20 +56,21 @@ def _get_cors_origins():
     return [origin.strip() for origin in raw_origins.split(",") if origin.strip()]
 
 
+def _resolve_path(raw_path: str, default_path: Path) -> Path:
+    path = Path(raw_path) if raw_path else default_path
+    return path if path.is_absolute() else PROJECT_ROOT / path
+
+
 class Settings:
     app_name = "Shelf Monitoring API"
     api_prefix = "/api"
     cors_origins = _get_cors_origins()
     database_url = _normalize_database_url(_get_env("DATABASE_URL", required=True))
     database_connect_timeout = _get_int_env("DATABASE_CONNECT_TIMEOUT", 10)
-    _raw_model_path = Path(os.getenv("MODEL_PATH", str(DEFAULT_MODEL_PATH)))
-    _raw_fallback_model_path = Path(os.getenv("FALLBACK_MODEL_PATH", str(FALLBACK_MODEL_PATH)))
-    model_path = _raw_model_path if _raw_model_path.is_absolute() else PROJECT_ROOT / _raw_model_path
-    fallback_model_path = (
-        _raw_fallback_model_path
-        if _raw_fallback_model_path.is_absolute()
-        else PROJECT_ROOT / _raw_fallback_model_path
-    )
+    _raw_model_path = _get_env("MODEL_PATH", str(DEFAULT_MODEL_PATH))
+    _raw_fallback_model_path = _get_env("FALLBACK_MODEL_PATH", _raw_model_path)
+    model_path = _resolve_path(_raw_model_path, DEFAULT_MODEL_PATH)
+    fallback_model_path = _resolve_path(_raw_fallback_model_path, model_path)
     default_prediction_limit = _get_int_env("DEFAULT_PREDICTION_LIMIT", 10)
     default_trend_days = _get_int_env("DEFAULT_TREND_DAYS", 7)
 
