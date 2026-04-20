@@ -8,8 +8,8 @@ load_dotenv()
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 BACKEND_ROOT = PROJECT_ROOT / "backend"
-DEFAULT_MODEL_PATH = BACKEND_ROOT / "models" / "model.keras"
-FALLBACK_MODEL_PATH = BACKEND_ROOT / "models" / "model.h5"
+DEFAULT_MODEL_PATH = BACKEND_ROOT / "models" / "model_v2.tflite"
+FALLBACK_MODEL_PATH = BACKEND_ROOT / "models" / "model.tflite"
 
 
 def _get_env(name: str, default: str | None = None, *, required: bool = False) -> str:

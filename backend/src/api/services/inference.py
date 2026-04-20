@@ -1,266 +1,171 @@
 import json
-from io import BytesIO
+import logging
+import threading
 from pathlib import Path
+from typing import BinaryIO
 
 import numpy as np
-from PIL import Image, ImageFilter
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-from tensorflow.keras.models import load_model
+from PIL import Image, UnidentifiedImageError
+from tflite_runtime.interpreter import Interpreter
 
 from src.api.config import settings
 
+logger = logging.getLogger(__name__)
+
 DEFAULT_CLASS_NAMES = ["empty", "low", "medium", "full"]
-DATASET_ROOT = Path(__file__).resolve().parents[4] / "data" / "raw_images"
-_MODEL = None
-_MODEL_METADATA = None
-_HEURISTIC_STATS = None
-_MODEL_LOAD_ATTEMPTED = False
+IMAGE_SIZE = (224, 224)
 
 
-def get_model_metadata(model_path):
-    global _MODEL_METADATA
-    if _MODEL_METADATA is not None:
-        return _MODEL_METADATA
+class ModelUnavailableError(RuntimeError):
+    pass
 
-    metadata_path = Path(model_path).with_name(f"{Path(model_path).stem}_metadata.json")
-    if metadata_path.exists():
-        with open(metadata_path, "r", encoding="utf-8") as metadata_file:
-            _MODEL_METADATA = json.load(metadata_file)
-    else:
-        _MODEL_METADATA = {
+
+class InvalidImageError(RuntimeError):
+    pass
+
+
+class TFLiteModelService:
+    def __init__(self) -> None:
+        self._interpreter: Interpreter | None = None
+        self._input_details: list[dict] | None = None
+        self._output_details: list[dict] | None = None
+        self._metadata = {
+            "class_names": DEFAULT_CLASS_NAMES,
+            "preprocess_mode": "rescale_01",
+        }
+        self._active_model_path: Path | None = None
+        self._load_error: str | None = None
+        self._load_attempted = False
+        self._load_lock = threading.Lock()
+        self._predict_lock = threading.Lock()
+
+    def preload(self) -> bool:
+        return self._ensure_model_loaded(raise_on_failure=False)
+
+    def _candidate_model_paths(self) -> list[Path]:
+        candidates = [settings.model_path]
+        if settings.fallback_model_path != settings.model_path:
+            candidates.append(settings.fallback_model_path)
+        return candidates
+
+    def _load_metadata(self, model_path: Path) -> dict:
+        metadata_path = model_path.with_name(f"{model_path.stem}_metadata.json")
+        if metadata_path.exists():
+            with metadata_path.open("r", encoding="utf-8") as metadata_file:
+                return json.load(metadata_file)
+        return {
             "class_names": DEFAULT_CLASS_NAMES,
             "preprocess_mode": "rescale_01",
         }
 
-    return _MODEL_METADATA
+    def _load_interpreter(self, model_path: Path) -> Interpreter:
+        interpreter = Interpreter(model_path=str(model_path), num_threads=1)
+        interpreter.allocate_tensors()
+        return interpreter
 
+    def _ensure_model_loaded(self, *, raise_on_failure: bool) -> bool:
+        if self._interpreter is not None:
+            return True
 
-def get_model():
-    global _MODEL, _MODEL_LOAD_ATTEMPTED
-    if _MODEL_LOAD_ATTEMPTED:
-        return _MODEL
+        with self._load_lock:
+            if self._interpreter is not None:
+                return True
+            if self._load_attempted and self._interpreter is None:
+                if raise_on_failure:
+                    raise ModelUnavailableError(self._load_error or "TFLite model could not be loaded.")
+                return False
 
-    _MODEL_LOAD_ATTEMPTED = True
-    if _MODEL is None:
-        model_path = settings.model_path
-        if not model_path.exists() and settings.fallback_model_path.exists():
-            model_path = settings.fallback_model_path
+            self._load_attempted = True
+            errors: list[str] = []
 
-        if not model_path.exists():
-            return None
+            for model_path in self._candidate_model_paths():
+                if not model_path.exists():
+                    errors.append(f"{model_path.name}: file not found")
+                    continue
 
-        _MODEL = load_model(model_path)
-        get_model_metadata(model_path)
-    return _MODEL
+                try:
+                    logger.info("Loading TFLite model from %s", model_path)
+                    interpreter = self._load_interpreter(model_path)
+                    self._interpreter = interpreter
+                    self._input_details = interpreter.get_input_details()
+                    self._output_details = interpreter.get_output_details()
+                    self._metadata = self._load_metadata(model_path)
+                    self._active_model_path = model_path
+                    self._load_error = None
+                    logger.info("TFLite model loaded from %s", model_path)
+                    return True
+                except Exception as exc:
+                    logger.exception("Failed to load TFLite model from %s", model_path)
+                    errors.append(f"{model_path.name}: {exc}")
 
+            self._load_error = " ; ".join(errors) if errors else "No TFLite model files were available."
 
-def _extract_visual_features(image_rgb):
-    resized_image = Image.fromarray(image_rgb).resize((224, 224))
-    hsv_image = np.asarray(resized_image.convert("HSV"), dtype=np.float32)
-    grayscale = resized_image.convert("L")
-    edge_image = grayscale.filter(ImageFilter.FIND_EDGES)
+        if raise_on_failure:
+            raise ModelUnavailableError(self._load_error)
+        return False
 
-    saturation = hsv_image[:, :, 1]
-    brightness = hsv_image[:, :, 2]
-    edge_pixels = np.asarray(edge_image, dtype=np.float32)
-
-    return np.array(
-        [
-            float((saturation > 45).mean()),
-            float((brightness > 80).mean()),
-            float((edge_pixels > 24).mean()),
-            float(((saturation < 35) & (brightness < 90)).mean()),
-        ],
-        dtype=np.float32,
-    )
-
-
-def _compute_occupancy_score(feature_vector):
-    saturation_ratio, brightness_ratio, edge_ratio, dark_neutral_ratio = feature_vector
-    return float(
-        (0.5 * saturation_ratio)
-        + (0.4 * edge_ratio)
-        + (0.1 * brightness_ratio)
-        - (0.3 * dark_neutral_ratio)
-    )
-
-
-def _load_training_heuristics():
-    global _HEURISTIC_STATS
-    if _HEURISTIC_STATS is not None:
-        return _HEURISTIC_STATS
-
-    label_features = {}
-    valid_suffixes = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
-
-    if not DATASET_ROOT.exists():
-        _HEURISTIC_STATS = {}
-        return _HEURISTIC_STATS
-
-    for label in DEFAULT_CLASS_NAMES:
-        class_dir = DATASET_ROOT / label
-        if not class_dir.exists():
-            continue
-
-        features = []
-        for image_path in class_dir.iterdir():
-            if image_path.suffix.lower() not in valid_suffixes:
-                continue
-
+    def _prepare_image_batch(self, image_file: BinaryIO) -> np.ndarray:
+        try:
+            image_file.seek(0)
+            with Image.open(image_file) as image:
+                image = image.convert("RGB")
+                image = image.resize(IMAGE_SIZE)
+                image_array = np.asarray(image, dtype=np.float32)
+        except (UnidentifiedImageError, OSError, ValueError) as exc:
+            raise InvalidImageError("Unable to read the uploaded image.") from exc
+        finally:
             try:
-                image_rgb = np.asarray(Image.open(image_path).convert("RGB"), dtype=np.uint8)
-            except (OSError, ValueError):
-                continue
-            features.append(_extract_visual_features(image_rgb))
+                image_file.seek(0)
+            except Exception:
+                pass
 
-        if features:
-            feature_array = np.vstack(features)
-            occupancy_scores = np.array(
-                [_compute_occupancy_score(feature_vector) for feature_vector in feature_array],
-                dtype=np.float32,
-            )
-            label_features[label] = {
-                "mean": feature_array.mean(axis=0),
-                "std": np.clip(feature_array.std(axis=0), 1e-3, None),
-                "occupancy_mean": float(occupancy_scores.mean()),
-                "occupancy_std": float(max(occupancy_scores.std(), 1e-3)),
-            }
+        image_array /= 255.0
+        return np.expand_dims(image_array, axis=0)
 
-    _HEURISTIC_STATS = label_features
-    return _HEURISTIC_STATS
+    def predict(self, image_file: BinaryIO) -> dict[str, float | dict[str, float]]:
+        self._ensure_model_loaded(raise_on_failure=True)
 
+        assert self._interpreter is not None
+        assert self._input_details is not None
+        assert self._output_details is not None
 
-def _predict_with_heuristic(image_rgb):
-    heuristic_stats = _load_training_heuristics()
-    if not heuristic_stats:
-        return {label: 0.25 for label in DEFAULT_CLASS_NAMES}
+        input_data = self._prepare_image_batch(image_file)
+        input_detail = self._input_details[0]
+        output_detail = self._output_details[0]
 
-    image_features = _extract_visual_features(image_rgb)
-    occupancy_score = _compute_occupancy_score(image_features)
-    occupancy_means = {
-        label: heuristic_stats[label]["occupancy_mean"]
-        for label in DEFAULT_CLASS_NAMES
-        if label in heuristic_stats
-    }
+        if input_detail["dtype"] != np.float32:
+            input_data = input_data.astype(input_detail["dtype"])
 
-    if len(occupancy_means) != len(DEFAULT_CLASS_NAMES):
-        return {label: 0.25 for label in DEFAULT_CLASS_NAMES}
+        try:
+            with self._predict_lock:
+                self._interpreter.set_tensor(input_detail["index"], input_data)
+                self._interpreter.invoke()
+                predictions = self._interpreter.get_tensor(output_detail["index"])[0]
+        finally:
+            del input_data
 
-    empty_mean = occupancy_means["empty"]
-    low_mean = occupancy_means["low"]
-    medium_mean = occupancy_means["medium"]
-    full_mean = occupancy_means["full"]
+        class_names = self._metadata.get("class_names", DEFAULT_CLASS_NAMES)
+        probabilities = {
+            label: float(score)
+            for label, score in zip(class_names, predictions)
+        }
 
-    probabilities = {label: 0.0 for label in DEFAULT_CLASS_NAMES}
+        predicted_label = max(probabilities, key=probabilities.get)
+        confidence = probabilities[predicted_label]
 
-    if occupancy_score <= empty_mean:
-        probabilities["empty"] = 1.0
-        return probabilities
-
-    if occupancy_score >= full_mean:
-        probabilities["full"] = 1.0
-        return probabilities
-
-    if occupancy_score < low_mean:
-        ratio = (occupancy_score - empty_mean) / max(low_mean - empty_mean, 1e-6)
-        probabilities["empty"] = float(1.0 - ratio)
-        probabilities["low"] = float(ratio)
-        return probabilities
-
-    if occupancy_score < medium_mean:
-        ratio = (occupancy_score - low_mean) / max(medium_mean - low_mean, 1e-6)
-        probabilities["low"] = float(1.0 - ratio)
-        probabilities["medium"] = float(ratio)
-        return probabilities
-
-    ratio = (occupancy_score - medium_mean) / max(full_mean - medium_mean, 1e-6)
-    probabilities["medium"] = float(1.0 - ratio)
-    probabilities["full"] = float(ratio)
-    return probabilities
+        return {
+            "predicted_label": predicted_label,
+            "confidence": round(float(confidence), 4),
+            "probabilities": {label: round(float(score), 4) for label, score in probabilities.items()},
+        }
 
 
-def _predict_with_model(image_rgb):
-    image_array = np.asarray(Image.fromarray(image_rgb).resize((224, 224)), dtype=np.float32)
-    image_array = np.expand_dims(image_array, axis=0)
-
-    model = get_model()
-    if model is None:
-        return {label: 1.0 / len(DEFAULT_CLASS_NAMES) for label in DEFAULT_CLASS_NAMES}
-
-    metadata = _MODEL_METADATA or {
-        "class_names": DEFAULT_CLASS_NAMES,
-        "preprocess_mode": "rescale_01",
-    }
-    class_names = metadata.get("class_names", DEFAULT_CLASS_NAMES)
-    preprocess_mode = metadata.get("preprocess_mode", "rescale_01")
-
-    if preprocess_mode == "mobilenet_v2":
-        image_array = preprocess_input(image_array)
-    else:
-        image_array = image_array / 255.0
-
-    predictions = model.predict(image_array, verbose=0)[0]
-    return {
-        label: float(score)
-        for label, score in zip(class_names, predictions)
-    }
+_MODEL_SERVICE = TFLiteModelService()
 
 
-def _normalize_probabilities(probabilities):
-    normalized = {label: float(probabilities.get(label, 0.0)) for label in DEFAULT_CLASS_NAMES}
-    total = sum(normalized.values())
-    if total <= 0:
-        return {label: 1.0 / len(DEFAULT_CLASS_NAMES) for label in DEFAULT_CLASS_NAMES}
-    return {
-        label: normalized[label] / total
-        for label in DEFAULT_CLASS_NAMES
-    }
+def preload_model() -> bool:
+    return _MODEL_SERVICE.preload()
 
 
-def _blend_probabilities(model_probabilities, heuristic_probabilities):
-    model_probabilities = _normalize_probabilities(model_probabilities)
-    heuristic_probabilities = _normalize_probabilities(heuristic_probabilities)
-
-    model_label = max(model_probabilities, key=model_probabilities.get)
-    heuristic_label = max(heuristic_probabilities, key=heuristic_probabilities.get)
-
-    model_weight = 0.55
-    heuristic_weight = 0.45
-
-    if heuristic_label in {"empty", "full"} and heuristic_probabilities[heuristic_label] >= 0.95:
-        model_weight = 0.02
-        heuristic_weight = 0.98
-    elif (
-        model_label in {"low", "medium"}
-        and heuristic_label in {"empty", "full"}
-        and heuristic_probabilities[heuristic_label] >= 0.4
-    ):
-        model_weight = 0.02
-        heuristic_weight = 0.98
-
-    blended = {
-        label: (model_weight * model_probabilities[label]) + (heuristic_weight * heuristic_probabilities[label])
-        for label in DEFAULT_CLASS_NAMES
-    }
-    return _normalize_probabilities(blended)
-
-
-def predict_image_bytes(image_bytes):
-    image = Image.open(BytesIO(image_bytes)).convert("RGB")
-    image_rgb = np.asarray(image, dtype=np.uint8)
-
-    model_probabilities = _predict_with_model(image_rgb)
-    heuristic_probabilities = _predict_with_heuristic(image_rgb)
-    final_probabilities = _blend_probabilities(model_probabilities, heuristic_probabilities)
-
-    predicted_label = max(final_probabilities, key=final_probabilities.get)
-    confidence = final_probabilities[predicted_label]
-
-    return {
-        "predicted_label": predicted_label,
-        "confidence": round(float(confidence), 4),
-        "probabilities": {
-            label: round(float(final_probabilities[label]), 4)
-            for label in DEFAULT_CLASS_NAMES
-        },
-    }
+def predict_upload_file(image_file: BinaryIO) -> dict[str, float | dict[str, float]]:
+    return _MODEL_SERVICE.predict(image_file)

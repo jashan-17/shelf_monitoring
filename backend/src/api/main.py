@@ -1,3 +1,6 @@
+import logging
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,9 +11,20 @@ from src.api.routes.predict import router as predict_router
 from src.api.routes.predictions import router as predictions_router
 from src.api.routes.status import router as status_router
 from src.api.routes.summary import router as summary_router
+from src.api.services.inference import InvalidImageError, ModelUnavailableError, preload_model
 from src.db.connection import DatabaseConnectionError
 
-app = FastAPI(title=settings.app_name)
+logger = logging.getLogger(__name__)
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    if not preload_model():
+        logger.warning("Model preload failed. Prediction endpoint will return 503 until a model is available.")
+    yield
+
+
+app = FastAPI(title=settings.app_name, lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -28,6 +42,28 @@ def handle_database_connection_error(_request: Request, exc: DatabaseConnectionE
         content={
             "detail": str(exc),
             "error": "database_unavailable",
+        },
+    )
+
+
+@app.exception_handler(ModelUnavailableError)
+def handle_model_unavailable(_request: Request, exc: ModelUnavailableError):
+    return JSONResponse(
+        status_code=503,
+        content={
+            "detail": str(exc),
+            "error": "model_unavailable",
+        },
+    )
+
+
+@app.exception_handler(InvalidImageError)
+def handle_invalid_image(_request: Request, exc: InvalidImageError):
+    return JSONResponse(
+        status_code=400,
+        content={
+            "detail": str(exc),
+            "error": "invalid_image",
         },
     )
 

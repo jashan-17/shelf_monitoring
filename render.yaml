@@ -7,7 +7,7 @@ services:
     startCommand: uvicorn src.api.main:app --app-dir backend --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
-        value: 3.12.9
+        value: 3.11.11
       - key: DATABASE_URL
         sync: false
       - key: DATABASE_SSLMODE
@@ -17,9 +17,9 @@ services:
       - key: CORS_ORIGINS
         sync: false
       - key: MODEL_PATH
-        value: backend/models/model_v2.keras
+        value: backend/models/model_v2.tflite
       - key: FALLBACK_MODEL_PATH
-        value: backend/models/model.h5
+        value: backend/models/model.tflite
       - key: DEFAULT_PREDICTION_LIMIT
         value: "10"
       - key: DEFAULT_TREND_DAYS
